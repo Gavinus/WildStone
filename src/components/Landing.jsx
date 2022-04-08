@@ -1,10 +1,18 @@
 // page de landing page chargement image de la page 
 
-const Landing = () => {
+const Landing = (props) => {
     return (
-        <img className=" background-repeat:no-repeat" src="./images/image-fond-landing-page.png" alt="image-landing" />
+        <div className="bg-no-repeat place-self-center h-screen bg-[url('./images/image-fond-landing-page.png')]"> 
+            <div className="flex flex-wrap content-center justify-center h-screen ..." >   
+                <div>
+                        <img src="../images/logo_texture_porte_gauche.png"/>
+                </div>
+                <div>
+                        <img src="../images/logo-texture-porte-droite.png"/>
+                </div>
+            </div>
+        </div>
     )
-
 }
 
 export default Landing;
