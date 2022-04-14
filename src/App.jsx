@@ -1,10 +1,13 @@
 import "./App.css";
 import Landing from "./components/Landing";
+import AcceuilRegle from "./components/AcceuilRegle";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Landing />
+    <div className="h-screen bg-[#B2915F] App">
+      <AcceuilRegle/>
     </div>
   );
 }
