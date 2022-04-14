@@ -6,7 +6,7 @@ import Heroes from "./components/Heroes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-[#B2915F]">
       <BarLogin/>
       <Heroes/>
     </div>
