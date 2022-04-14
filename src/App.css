@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.root {
+
+    --secondary-color: #18A0DA;
+    --button-color: #2D75D9;
+}
