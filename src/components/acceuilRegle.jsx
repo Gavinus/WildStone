@@ -3,7 +3,7 @@ import React from "react";
 
 const AcceuilRegle = () => {
   return (
-   <div className="content-center justify-center bg-primary">
+   <div className="content-center justify-center bg-[#B2915F]">
       <h1 className="mb-10 text-6xl text-center ">Règles du Jeu </h1>
           <div className="flex flex-col mx-10 ml-10 space-y-4 text-2xl ">
              <p>
