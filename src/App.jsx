@@ -4,6 +4,7 @@ import BarLogin from "./components/BarLogin";
 import Heroes from "./components/Heroes";
 import Heroe from "./components/Heroe";
 import Landing from "./components/Landing";
+import AcceuilRegle from "./components/AcceuilRegle";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/BarLogin" element={<BarLogin />} />
           <Route path="/Heroes" element={<Heroes />} />
           <Route path="/Heroe" element={<Heroe />} />
+          <Route path="/" element={<AcceuilRegle />} />  
         </Routes>
       </div>
     </Router>
@@ -27,4 +29,3 @@ function App() {
 };
 
 export default App;
-
