@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import BarLogin from "./components/BarLogin";
 import Landing from "./components/Landing";
+import AcceuilRegle from "./components/AcceuilRegle";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/" element={<AcceuilRegle />} />  
         </Routes>
       </div>
     </Router>
@@ -19,4 +21,3 @@ function App() {
 }
 
 export default App;
-
