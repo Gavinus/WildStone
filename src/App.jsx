@@ -9,7 +9,7 @@ import Landing from "./components/Landing";
 function App() {
   return (
     <Router>
-    <div className="h-screen bg-[#B2915F] App">
+    <div className="bg-[#B2915F]" App>
         <nav>
           <ul>{/* Add your links here */}
           <BarLogin/>
