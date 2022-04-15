@@ -34,8 +34,8 @@ const Heroes = () => {
                 nameClass
               )
           )
-          .map((nameClass) => (
-            <Heroe nameClass={nameClass} />
+          .map((nameClass, index) => (
+            <Heroe key={nameClass} nameClass={nameClass} />
           ))}
       </div>
     </div>
