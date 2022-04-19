@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Battleground = () => {
   return <h1>BATTLERGROUND</h1>;
