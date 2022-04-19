@@ -1,54 +1,26 @@
+import { Route, Routes } from 'react-router-dom';
 import "./App.css";
 import Menu from "./components/Menu";
-
-
-
-
-// function App() {    
-
-
-
-//   return (
-// <<<<<<< Updated upstream
-//     <div className="h-screen bg-[#B2915F] App">
-//       <nav>
-//         <Landing />
-//         <Menu />
-//         <ul>{/* Add your links here */}</ul>
-//       </nav>
-//       <Routes>
-//         <Route path="/" element={<Landing />} />
-//         <Route path="/menu" element={<Menu />} />
-//       </Routes>
-// =======
-//     <div className="App">
-//       <Menu />
-
-// >>>>>>> Stashed changes
-//     </div>
-//   );
-// }
-
-// export default App;
-import { Route, Routes } from 'react-router-dom';
-import BarLogin from "./components/BarLogin";
+import AcceuilRegle from "./components/AccueilRegle"
 import Heroes from "./components/Heroes";
+import Battleground from "./components/Battleground";
+import Contact from "./components/Contact";
 import Landing from "./components/Landing";
+import BarLogin from './components/BarLogin';
 
 
 function App() {
   return (
-    <div className="bg-[#B2915F]">
-        <nav>
-          <ul>{/* Add your links here */}
-          <BarLogin/>
-          </ul>
-        </nav>
+    <div className="bg-[#B2915F] font-belwe">
+        <BarLogin />
+        <Menu />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/BarLogin" element={<BarLogin />} />
-          <Route path="/Heroes" element={<Heroes />} />
-          <Route path="/Menu" element={<Menu />} />
+          <Route path="/acceuilregle" element={<AcceuilRegle />} />
+          <Route path="/heroes" element={<Heroes />} />
+          <Route path="/battleground" element={<Battleground />} />
+          <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </div>
     );

@@ -4,8 +4,8 @@ import React from "react";
 const AcceuilRegle = () => {
   return (
    <div className="content-center justify-center bg-[#B2915F]">
-      <h1 className="mb-10 text-6xl text-center ">Règles du Jeu </h1>
-          <div className="flex flex-col mx-10 ml-10 space-y-4 text-2xl ">
+      <h1 className="mb-10 text-6xl text-center font-['.font/Belwe Bold.otf']">Règles du Jeu </h1>
+          <div className="flex flex-col mx-10 ml-10 space-y-4 text-2xl font-['./font/Belwe Bold.otf']">
              <p>
                 Après avoir choisi une des 9 classes jouables du jeu, les joueurs utilisent un deck de 30 cartes. Il peut être composé de deux exemplaires d'une carte simple. En revanche, il contient une seule unité de carte légendaire. Le deck peut contenir plusieurs cartes légendaires pour autant qu'elles soient différentes. Il doit être composé à la fois de cartes identiques à toutes les classes et de cartes spécifiques à la classe choisie.
              </p>
