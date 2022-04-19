@@ -1,6 +1,6 @@
 import React from "react";
 
-const Heroe = ({ nameClass }) => {
+const Heroe = (nameClass) => {
   return (
     <div className="flex flex-col items-center w-80">
       <img

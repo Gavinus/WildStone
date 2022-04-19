@@ -3,13 +3,13 @@ module.exports = {
   // ...
   theme: {
     fontFamily: {
-        belwe: ["belwe", "serif"],
+      belwe: ["belwe", "serif"],
+    },
+    extend: {
+      width: {
+        100: "10%",
       },
-      extend: {
-        width: {
-          '100': '10%',
-        },
-      }
+    },
   },
-plugins: [],
+  plugins: [],
 };
