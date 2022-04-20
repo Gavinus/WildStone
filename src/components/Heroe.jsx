@@ -1,6 +1,7 @@
 import React from "react";
+import Proptypes from "prop-types";
 
-const Heroe = (nameClass) => {
+const Heroe = ({ nameClass }) => {
   return (
     <div className="flex flex-col items-center w-80">
       <img
@@ -11,6 +12,10 @@ const Heroe = (nameClass) => {
       <h2>{nameClass}</h2>
     </div>
   );
+};
+
+Heroe.propTypes = {
+  nameClass: Proptypes.string.isRequired,
 };
 
 export default Heroe;
