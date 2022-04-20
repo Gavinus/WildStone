@@ -42,6 +42,9 @@ const Menu = () => {
         className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-300 ${
           menu ? "h-auto" : "h-0"
         }`}
+        // className={`${
+        //   menu ? "h-32" : "h-0"
+        // } transition-all delay-150 duration-300 overflow-hidden w-full`}
       >
         <img src="./images/battleground1.png" alt="menu" className="w-full" />
         {/* Parcour l'api pour recuperer les dos de carte avec leur numero directement */}
@@ -56,7 +59,7 @@ const Menu = () => {
               <div
                 key={index}
                 id="content-card1"
-                className="flex justify-center items-center ml-4 "
+                className="flex justify-center items-center ml-4 animate-[float_2s_ease-in-out_infinite]"
               >
                 {/* Test du link qui doit pas etre au bon endroit "mauvais affichage sur le menu" */}
                 <Link
@@ -73,7 +76,7 @@ const Menu = () => {
                   <img
                     src={backCards[link.img].img}
                     alt="card1"
-                    className={menu ? "block" : "hidden"}
+                    className={` ${menu ? "block" : "hidden"}`}
                   />
                 </Link>
               </div>
@@ -83,6 +86,8 @@ const Menu = () => {
       </div>
       <img
         onClick={() => showMenu()}
+        aria-hidden
+        onKeyDown={showMenu}
         src="./images/logo-wild-heartstone.png"
         alt="logoOpen"
         className="w-100 cursor-pointer -translate-y-1/2 my-0 mx-auto"
