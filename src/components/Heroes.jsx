@@ -35,7 +35,7 @@ const Heroes = () => {
               )
           )
           .map((nameClass, index) => (
-            <Heroe key={index} nameClass={nameClass} />
+            <Heroe key={(nameClass, index)} nameClass={nameClass} />
           ))}
       </div>
     </div>

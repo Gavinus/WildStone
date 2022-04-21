@@ -4,9 +4,9 @@ import Menu from "./components/Menu";
 import AcceuilRegle from "./components/AccueilRegle";
 import Heroes from "./components/Heroes";
 import Battleground from "./components/Battleground";
-import Contact from "./components/Contact";
 import Landing from "./components/Landing";
 import BarLogin from "./components/BarLogin";
+import Contact from "./components/Contact";
 
 function App() {
   return (
