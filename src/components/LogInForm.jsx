@@ -50,7 +50,7 @@ const LoginForm = () => {
       </div>
 
       <div>
-        <Link to=".rules/">
+        <Link to="./rules">
           <button
             type="submit"
             onClick={clickChange}
