@@ -50,7 +50,7 @@ const LoginForm = () => {
       </div>
 
       <div>
-        <Link to="./menu/">
+        <Link to=".rules/">
           <button
             type="submit"
             onClick={clickChange}
@@ -59,7 +59,7 @@ const LoginForm = () => {
             Se connecter
           </button>
         </Link>
-        <Link to="./menu/">
+        <Link to="./rules">
           <button
             type="submit"
             className="p-1 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 ml-[26px]"
