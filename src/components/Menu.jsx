@@ -38,7 +38,9 @@ const Menu = () => {
       {/* div du backgroundMenu */}
       {/* Ternaire de l'enfer pour afficher ou non le menu grace au true et false */}
       <div
-      onClick={() => showMenu()}
+        onClick={() => showMenu()}
+        aria-hidden
+        onKeyDown={showMenu}
         id="menu"
         className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
           menu ? "h-screen" : "h-0"
@@ -63,7 +65,10 @@ const Menu = () => {
                 className="flex justify-center items-center ml-4 animate-[float_2s_ease-in-out_infinite]"
               >
                 {/* Test du link qui doit pas etre au bon endroit "mauvais affichage sur le menu" */}
-                <Link onClick={() => showMenu()}
+                <Link
+                  onClick={() => showMenu()}
+                  aria-hidden
+                  onKeyDown={showMenu}
                   to={link.path}
                   className="flex justify-center items-center text-2xl	"
                 >

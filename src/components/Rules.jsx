@@ -50,7 +50,7 @@ const Rules = () => {
           {`Chaque héros dispose d'une compétence propre qui lui coûte 2 cristaux
           de mana.`}
           <br />
-          {`Le héros peut utiliser sa compétence à chaque tour.`}
+          Le héros peut utiliser sa compétence à chaque tour.
           <br />
           {` Le héros s'accompagne de serviteurs dans la bataille grâce à des
           cartes serviteurs. Ceux-ci restent sur le champ de bataille et
@@ -78,11 +78,11 @@ const Rules = () => {
           {`La première n'est pas définie sur la carte comme Provocation (Taunt),
           Cri de bataille (Battlecry),.... Elle est donc à connaître.`}
           <br />
-          {`La seconde est celle spécifiée sur la carte.`}
+          La seconde est celle spécifiée sur la carte.
           <br />
           {`Les cartes de sort n'ont pas de valeur d'attaque ou de vie. `}
           <br />
-          {`Elles sont jouées une seule fois et ensuite, elles sont perdues.`}
+          Elles sont jouées une seule fois et ensuite, elles sont perdues.
           <br />
           {`Les cartes d'arme/équipement ont une valeur d'attaque et de vie.`}
           <br />
