@@ -1,10 +1,30 @@
+import React from "react";
+import { Link } from "react-router-dom";
+// import React, { useState } from "react";
+
 const LoginForm = () => {
+  // inititialisation du stockage username
+  const [userName, setUsername] = React.useState("");
+
+  function handleInputChange(e) {
+    setUsername(e.target.value);
+  }
+
+  function clickChange() {
+    sessionStorage.setItem("user", userName);
+  }
+
+  function clickInvit() {
+    sessionStorage.setItem("user", "Invité");
+  }
+
   return (
     <form className="p-4 border-2 border-blue-500 rounded bg-black/25 w-72">
       <div className="py-8 ">
         <input
-          type="email"
-          placeholder="Adresse Email"
+          type="text"
+          placeholder="Username"
+          onChange={handleInputChange}
           className="w-full p-3 text-center border-2 border-blue-500 rounded hover:border-yellow-400"
         />
       </div>
@@ -30,19 +50,24 @@ const LoginForm = () => {
       </div>
 
       <div>
-        <button
-          type="submit"
-          className="p-1 text-sm text-white uppercase bg-blue-500 rounded-lg w-28 hover:text-yellow-400"
-        >
-          Se connecter
-        </button>
-
-        <button
-          type="submit"
-          className="p-1 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 ml-[26px]"
-        >
-          Invité
-        </button>
+        <Link to="./menu/">
+          <button
+            type="submit"
+            onClick={clickChange}
+            className="p-1 text-sm text-white uppercase bg-blue-500 rounded-lg w-28 hover:text-yellow-400"
+          >
+            Se connecter
+          </button>
+        </Link>
+        <Link to="./menu/">
+          <button
+            type="submit"
+            className="p-1 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 ml-[26px]"
+            onClick={clickInvit}
+          >
+            Invité
+          </button>
+        </Link>
       </div>
     </form>
   );

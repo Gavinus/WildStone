@@ -10,6 +10,7 @@ const Landing = () => {
     setDorsLeft(!Dorsleft);
     setDorsRight(!DorsRight);
   };
+  sessionStorage.clear();
 
   return (
     <div className="bg-no-repeat bg-center h-screen bg-[url('./images/image-fond-landing-page.png')]">
