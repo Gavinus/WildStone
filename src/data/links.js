@@ -1,6 +1,6 @@
 const links = [
   {
-    path: "/acceuilregle",
+    path: "/rules",
     name: "Rules",
     img: 125,
   },

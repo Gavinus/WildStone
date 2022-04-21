@@ -1,6 +1,6 @@
 import React from "react";
 
-const AcceuilRegle = () => {
+const Rules = () => {
   return (
     <div className="content-center justify-center bg-[#B2915F]">
       <h1 className="mb-10 text-6xl text-center font-['.font/Belwe Bold.otf']">
@@ -50,7 +50,7 @@ const AcceuilRegle = () => {
           {`Chaque héros dispose d'une compétence propre qui lui coûte 2 cristaux
           de mana.`}
           <br />
-          Le héros peut utiliser sa compétence à chaque tour.
+          {`Le héros peut utiliser sa compétence à chaque tour.`}
           <br />
           {` Le héros s'accompagne de serviteurs dans la bataille grâce à des
           cartes serviteurs. Ceux-ci restent sur le champ de bataille et
@@ -78,11 +78,11 @@ const AcceuilRegle = () => {
           {`La première n'est pas définie sur la carte comme Provocation (Taunt),
           Cri de bataille (Battlecry),.... Elle est donc à connaître.`}
           <br />
-          La seconde est celle spécifiée sur la carte.
+          {`La seconde est celle spécifiée sur la carte.`}
           <br />
           {`Les cartes de sort n'ont pas de valeur d'attaque ou de vie. `}
           <br />
-          Elles sont jouées une seule fois et ensuite, elles sont perdues.
+          {`Elles sont jouées une seule fois et ensuite, elles sont perdues.`}
           <br />
           {`Les cartes d'arme/équipement ont une valeur d'attaque et de vie.`}
           <br />
@@ -117,4 +117,4 @@ const AcceuilRegle = () => {
   );
 };
 
-export default AcceuilRegle;
+export default Rules;
