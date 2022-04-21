@@ -62,7 +62,7 @@ const Menu = () => {
                 className="flex justify-center items-center ml-4 animate-[float_2s_ease-in-out_infinite]"
               >
                 {/* Test du link qui doit pas etre au bon endroit "mauvais affichage sur le menu" */}
-                <Link
+                <Link onClick={() => showMenu()}
                   to={link.path}
                   className="flex justify-center items-center text-2xl	"
                 >

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu";
-import AcceuilRegle from "./components/AccueilRegle";
+import Rules from "./components/Rules";
 import Heroes from "./components/Heroes";
 import Battleground from "./components/Battleground";
 import Landing from "./components/Landing";
@@ -15,7 +15,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/acceuilregle" element={<AcceuilRegle />} />
+        <Route path="/rules" element={<Rules />} />
         <Route path="/heroes" element={<Heroes />} />
         <Route path="/battleground" element={<Battleground />} />
         <Route path="/contact" element={<Contact />} />
