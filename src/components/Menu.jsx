@@ -38,9 +38,10 @@ const Menu = () => {
       {/* div du backgroundMenu */}
       {/* Ternaire de l'enfer pour afficher ou non le menu grace au true et false */}
       <div
+      onClick={() => showMenu()}
         id="menu"
-        className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-300 ${
-          menu ? "h-auto" : "h-0"
+        className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
+          menu ? "h-screen" : "h-0"
         }`}
         // className={`${
         //   menu ? "h-32" : "h-0"
@@ -90,7 +91,7 @@ const Menu = () => {
         onKeyDown={showMenu}
         src="./images/logo-wild-heartstone.png"
         alt="logoOpen"
-        className="w-100 cursor-pointer -translate-y-1/2 my-0 mx-auto"
+        className="w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );
