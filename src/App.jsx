@@ -7,6 +7,7 @@ import Battleground from "./components/Battleground";
 import Landing from "./components/Landing";
 import BarLogin from "./components/BarLogin";
 import Contact from "./components/Contact";
+import Description from "./components/Description";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/rules" element={<Rules />} />
+        <Route path="/description/:nameClass" element={<Description />} />
         <Route path="/heroes" element={<Heroes />} />
         <Route path="/battleground" element={<Battleground />} />
         <Route path="/contact" element={<Contact />} />
