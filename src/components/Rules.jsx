@@ -23,7 +23,7 @@ const Rules = () => {
         </p>
         <img
           className="mx-auto"
-          src="./images/Changement cartes.png"
+          src="/images/Changement cartes.png"
           alt="changcard"
         />
         <p>
