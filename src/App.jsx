@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/rules" element={<Rules />} />
         <Route path="/heroes" element={<Heroes />} />
-        <Route path="/description" element={<Description />} />
+        <Route path="/description/:nameclass" element={<Description />} />
         <Route path="/battleground" element={<Battleground />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

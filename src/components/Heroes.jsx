@@ -4,7 +4,7 @@ import Heroe from "./Heroe";
 
 const Heroes = () => {
   const [listClasses, setListClasses] = useState([]);
-  console.log(listClasses);
+
   const options = {
     method: "GET",
     url: "https://omgvamp-hearthstone-v1.p.rapidapi.com/info",
@@ -23,9 +23,6 @@ const Heroes = () => {
   }, []);
   return (
     <div>
-      <div className="flex justify-center ">
-        <img className="h-28" src="./images/logo_texture.png" alt="logo" />
-      </div>
       <div className="flex flex-wrap justify-center gap-10">
         {listClasses
           .filter(
