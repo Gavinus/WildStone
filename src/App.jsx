@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu";
 import Rules from "./components/Rules";
+import Landing from "./components/Landing";
 import Heroes from "./components/Heroes";
 import Battleground from "./components/Battleground";
-import Landing from "./components/Landing";
+import Description from "./components/Description";
 import BarLogin from "./components/BarLogin";
 import Contact from "./components/Contact";
-import Description from "./components/Description";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/rules" element={<Rules />} />
-        <Route path="/description/:nameClass" element={<Description />} />
         <Route path="/heroes" element={<Heroes />} />
+        <Route path="/description/:nameclass" element={<Description />} />
         <Route path="/battleground" element={<Battleground />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

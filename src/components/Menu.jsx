@@ -73,7 +73,7 @@ const Menu = () => {
                   className="flex justify-center items-center text-2xl	"
                 >
                   <h1
-                    className={`absolute text-center text-1 ${
+                    className={`cursor text-white absolute text-center text-1 ${
                       menu ? "block" : "hidden"
                     }`}
                   >
