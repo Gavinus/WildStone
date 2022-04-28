@@ -1,5 +1,3 @@
-import druide from "../../images/descriptionDruide.png";
-
 const descHeroes = [
   {
     id: 0,
@@ -134,7 +132,7 @@ const descHeroes = [
   },
   {
     id: 9,
-    title: "Chasseur de Démons",
+    title: "Chasseur de démons",
     subtitle: "Vous n’êtes pas prêts !",
     image: "../../images/descriptionChasseurDeDemon.jpeg",
     desc: `Incarnez le chasseur de démons pour retourner les forces destructrices du chaos contre vos ennemis.
