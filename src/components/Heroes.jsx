@@ -22,19 +22,17 @@ const Heroes = () => {
       .then((data) => setListClasses(data));
   }, []);
   return (
-    <div>
-      <div className="flex flex-wrap justify-center gap-10">
-        {listClasses
-          .filter(
-            (nameClass) =>
-              !["Dream", "Chevalier de la mort", "Neutre", "Whizbang"].includes(
-                nameClass
-              )
-          )
-          .map((nameClass, index) => (
-            <Heroe key={(nameClass, index)} nameClass={nameClass} />
-          ))}
-      </div>
+    <div className="flex flex-wrap justify-center gap-10 ">
+      {listClasses
+        .filter(
+          (nameClass) =>
+            !["Dream", "Chevalier de la mort", "Neutre", "Whizbang"].includes(
+              nameClass
+            )
+        )
+        .map((nameClass, index) => (
+          <Heroe key={index} nameClass={nameClass} />
+        ))}
     </div>
   );
 };
