@@ -64,7 +64,7 @@ const Menu = () => {
                 id="content-card1"
                 className="flex justify-center items-center ml-4 animate-[float_2s_ease-in-out_infinite]"
               >
-                {/* Test du link qui doit pas etre au bon endroit "mauvais affichage sur le menu" */}
+                {/* Test du link */}
                 <Link
                   onClick={() => showMenu()}
                   aria-hidden
