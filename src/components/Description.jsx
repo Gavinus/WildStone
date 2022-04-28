@@ -8,11 +8,12 @@ import "react-multi-carousel/lib/styles.css";
 
 const Description = () => {
   const { nameClass } = useParams();
+  console.log(nameClass);
 
   const [heroeInfos, setHeroeInfos] = useState([]);
+  console.log(heroeInfos);
 
   const [listClasses, setListClasses] = useState([]);
-  console.log(listClasses);
   // Appel de l'API
   const options = {
     method: "GET",
@@ -23,16 +24,17 @@ const Description = () => {
       "X-RapidAPI-Key": "4d914d2fa4msh369949fcb214d78p15f32ajsn6d8461683d7f",
     },
   };
+  console.log(descHeroes.find((descHeroe) => descHeroe.title === nameClass));
   useEffect(() => {
+    setHeroeInfos(
+      descHeroes.find((descHeroe) => descHeroe.title === nameClass)
+    );
     // get all classes
     axios
       .request(options)
       .then((res) => res.data.classes)
       .then((data) => setListClasses(data));
     // find one heroe
-    setHeroeInfos(
-      descHeroes.find((descHeroe) => descHeroe.title === nameClass)
-    );
   }, [nameClass]);
   // Package du carousel
   const responsive = {
@@ -55,61 +57,63 @@ const Description = () => {
 
   return (
     <div className="bg-black">
-      <div
-        className={`relative flex flex-col items-center min-h-screen  justify-center bg-[url(${heroeInfos.image})]`}
-      >
-        {/* Image du héros principal */}
-        <img
-          src={heroeInfos.image}
-          className="object-cover w-full h-full mt-0 "
-          alt="heroeInfos"
-        />
-        {/* Nom du héros */}
+      {heroeInfos && (
+        <div className="relative flex flex-col items-center justify-center min-h-screen">
+          {/* Image du héros principal */}
+          <img
+            src={heroeInfos.image}
+            className="object-cover w-full h-full mt-0 "
+            alt="heroeInfos"
+          />
+          {/* Nom du héros */}
 
-        <div className="absolute text-center ">
-          <h1
-            className="text-5xl text-white mt-80 max-w-prose-sm:text-base"
-            style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
-          >
-            {heroeInfos.title}
-          </h1>
-          {/* Sous-titre du héros */}
+          <div className="absolute text-center ">
+            <h1
+              className="text-5xl text-white mt-80 max-w-prose-sm:text-base"
+              style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
+            >
+              {heroeInfos.title}
+            </h1>
+            {/* Sous-titre du héros */}
 
-          <h2
-            style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
-            className="text-3xl text-orange-600 max-w-screen-md:text-sm "
-          >
-            {heroeInfos.subtitle}
-          </h2>
-          {/* Description du héros */}
-          <p
-            className="ml-5 mr-5 text-center text-white "
-            style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
-          >
-            {heroeInfos.desc}
-          </p>
+            <h2
+              style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
+              className="text-3xl text-orange-600 max-w-screen-md:text-sm "
+            >
+              {heroeInfos.subtitle}
+            </h2>
+            {/* Description du héros */}
+            <p
+              className="ml-5 mr-5 text-center text-white "
+              style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
+            >
+              {heroeInfos.desc}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
       {/* Pouvoir héroique */}
-      <div className="mt-32 ">
-        <div className="ml-20 ">
-          <h1 className="text-3xl text-orange-600 ">
-            {heroeInfos.powerHeroique}
-          </h1>
-          {/* Citation du héros */}
-          <h1 className="mt-5 text-xl text-white ">{heroeInfos.quote}</h1>
-          {/* Image du Pouvoir héroique */}
-          <img className="" src={heroeInfos.imagePower} alt="power" />
+      {heroeInfos && (
+        <div className="mt-32 ">
+          <div className="m-auto ml-20 ">
+            <h1 className="text-3xl text-orange-600 ">
+              {heroeInfos.powerHeroique}
+            </h1>
+            {/* Citation du héros */}
+            <h1 className="mt-5 text-xl text-white ">{heroeInfos.quote}</h1>
+            {/* Image du Pouvoir héroique */}
+            <img className="" src={heroeInfos.imagePower} alt="power" />
+          </div>
+          {/* Nom du Pouvoir héroique */}
+          <div className="flex flex-col w-1/2 text-center ">
+            <h1 className="mb-6 text-3xl text-orange-600 ">
+              {heroeInfos.powerTitle}
+            </h1>
+            {/* Utilité du Pouvoir héroique */}
+            <p className="text-white ">{heroeInfos.utilityPower}</p>
+          </div>
         </div>
-        {/* Nom du Pouvoir héroique */}
-        <div className="flex flex-col w-1/2 text-center ">
-          <h1 className="mb-6 text-3xl text-orange-600 ">
-            {heroeInfos.powerTitle}
-          </h1>
-          {/* Utilité du Pouvoir héroique */}
-          <p className="text-white ">{heroeInfos.utilityPower}</p>
-        </div>
-      </div>
+      )}
 
       <div className="flex justify-center mt-56 text-3xl text-orange-600 underline">
         <h1>Autres Classes :</h1>

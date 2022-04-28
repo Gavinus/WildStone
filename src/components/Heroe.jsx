@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Heroe = ({ nameClass, location }) => {
   // Fonction permettant de remonter en haut de la page en cliquant sur le carousel.
+  console.log(nameClass);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  console.log(nameClass, location);
   return (
     <ul className="flex flex-col items-center m-auto w-80">
       <li>
