@@ -17,9 +17,8 @@ const Landing = () => {
       <div className="flex flex-wrap content-center justify-center h-screen ...">
         <div>
           <img
-            className={`${
-              Dorsleft ? "-translate-x-5 " : ""
-            } transition ease-out duration-300`}
+            className={`md:w-48 lg:w-80 xl:w-96 ${Dorsleft ? "-translate-x-5 " : ""
+              } transition ease-out duration-300`}
             src="../images/logo_texture_porte_gauche.png"
             alt="logoLanding"
             aria-hidden
@@ -45,9 +44,8 @@ const Landing = () => {
         </div>
         <div>
           <img
-            className={`${
-              Dorsleft ? "translate-x-5" : ""
-            } transition ease-out duration-300`}
+            className={`md:w-48 lg:w-80 xl:w-96 ${Dorsleft ? "translate-x-5" : ""
+              } transition ease-out duration-300`}
             src="../images/logo-texture-porte-droite.png"
             alt="landing"
             aria-hidden
