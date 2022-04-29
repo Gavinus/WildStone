@@ -40,7 +40,7 @@ const Menu = () => {
         aria-hidden
         onKeyDown={showMenu}
         id="menu"
-        className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
+        className={`z-20 flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
           menu ? "h-screen" : "h-0"
         }`}
       >
@@ -91,7 +91,7 @@ const Menu = () => {
         onKeyDown={showMenu}
         src="./images/logo-wild-heartstone.png"
         alt="logoOpen"
-        className="w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="z-20 w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );

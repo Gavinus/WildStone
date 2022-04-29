@@ -67,7 +67,7 @@ const Battleground = () => {
               <img
                 src={card.imgGold}
                 alt={card.name}
-                className="w-[6.5%] cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] absolute"
+                className="w-[6.5%] cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
               />
             </div>
           ))}
@@ -78,7 +78,7 @@ const Battleground = () => {
               <img
                 src={card.imgGold}
                 alt={card.name}
-                className="w-[6.5%]  cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] absolute"
+                className="w-[6.5%]  cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
               />
             </div>
           ))}
