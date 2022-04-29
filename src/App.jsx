@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-// import Menu from "./components/Menu";
 import Rules from "./components/Rules";
 import Landing from "./components/Landing";
 import Heroes from "./components/Heroes";
@@ -12,7 +11,6 @@ import Home from "./components/Home";
 function App() {
   return (
     <div className="bg-[#B2915F] font-belwe">
-      {/* <Menu /> */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />}>
