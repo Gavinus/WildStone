@@ -50,7 +50,7 @@ const LoginForm = () => {
       </div>
 
       <div className="flex justify-around">
-        <Link to="./rules">
+        <Link to="/home/rules">
           <button
             type="submit"
             onClick={clickChange}
@@ -59,7 +59,7 @@ const LoginForm = () => {
             Se connecter
           </button>
         </Link>
-        <Link to="./rules">
+        <Link to="/home/rules">
           <button
             type="submit"
             className="h-12 p-1 ml-5 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 "

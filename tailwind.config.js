@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       keyframes: {
         float: {
-          "0% 100%": {
+          "0%, 100%": {
             transform: "translateY(0)",
           },
           "50%": {
@@ -16,14 +16,25 @@ module.exports = {
           },
         },
         shadow: {
-          "0% 100%": {
+          "0%, 100%": {
             boxShadow: "0 15px 15px 0px rgba(0,0,0,0.8)",
           },
           "50%": {
             boxShadow: "0 15px 15px 0px rgba(0,0,0,0.2)",
           },
         },
+        scale: {
+          "0%, 100%": {
+            transform: "scale(0.8)",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "scale(0.7)",
+            opacity: "0.6",
+          },
+        },
       },
+
       width: {
         100: "10%",
       },

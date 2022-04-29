@@ -13,14 +13,14 @@ const Landing = () => {
   sessionStorage.clear();
 
   return (
-    <div className="bg-no-repeat bg-center h-screen bg-[url('./images/image-fond-landing-page.png')]">
+    <div className="bg-no-repeat bg-center h-screen bg-[url('/assets/image-fond-landing-page.png')]">
       <div className="flex flex-wrap content-center justify-center h-screen ...">
         <div>
           <img
             className={`md:w-48 lg:w-80 xl:w-96 ${
               Dorsleft ? "-translate-x-5 " : ""
             } transition ease-out duration-500`}
-            src="../images/logo_texture_porte_gauche.png"
+            src="/assets/logo_texture_porte_gauche.png"
             alt="logoLanding"
             aria-hidden
             onClick={() => handleChange()}
@@ -39,7 +39,7 @@ const Landing = () => {
             className={`md:w-48 lg:w-80 xl:w-96 ${
               Dorsleft ? "translate-x-5" : ""
             } transition ease-out duration-500`}
-            src="../images/logo-texture-porte-droite.png"
+            src="/assets/logo-texture-porte-droite.png"
             alt="landing"
             aria-hidden
             onKeyPress={handleChange}

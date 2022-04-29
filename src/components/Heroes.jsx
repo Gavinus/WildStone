@@ -22,7 +22,7 @@ const Heroes = () => {
       .then((data) => setListClasses(data));
   }, []);
   return (
-    <div className="flex flex-wrap justify-center gap-10 ">
+    <div className="flex flex-wrap justify-center gap-10 pt-24 ">
       {listClasses
         .filter(
           (nameClass) =>
