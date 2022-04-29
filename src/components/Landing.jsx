@@ -26,26 +26,12 @@ const Landing = () => {
             onClick={() => handleChange()}
             onKeyPress={() => handleChange()}
           />
-          {/* return (
-        <div className="bg-no-repeat bg-center h-screen bg-[url('./images/image-fond-landing-page.png')]">
-            <div className="flex flex-wrap content-center justify-center h-screen ..." >
-                <div>
-                    <img className={`${Dorsleft ? '-translate-x-5 ' :''} transition ease-out duration-300`} src="../images/logo_texture_porte_gauche.png" onClick={handleChange} />
-                </div>
-                <div className="flex items-center">
-                   { Dorsleft && DorsRight ? <LoginForm /> : ""}
-                </div>
-                <div>
-                    <img className={`${Dorsleft ? 'translate-x-5' :''} transition ease-out duration-300`} src="../images/logo-texture-porte-droite.png" onClick={handleChange} />
-                </div>
-            </div> */}
         </div>
         <div
           className={`flex items-center overflow-hidden delay-150 after:tranform-none transition-all duration-500 ease-in-out before:-transform-none ${
             Dorsleft && DorsRight ? "w-auto opacity-100" : "w-0 opacity-0"
           }`}
         >
-          {/* {Dorsleft && DorsRight ? <LoginForm /> : ""} */}
           <LoginForm />
         </div>
         <div>
