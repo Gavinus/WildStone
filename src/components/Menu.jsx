@@ -31,7 +31,7 @@ const Menu = () => {
     setMenu(!menu);
   };
   return (
-    // logo pour dérouler le menu au click true ou false
+    /* logo pour dérouler le menu au click true ou false */
     <div id="logoOpenMenu">
       <BarLogin />
       {/* div du backgroundMenu */}
@@ -54,7 +54,6 @@ const Menu = () => {
           >
             {/* Map pour le chemin des links de chaque page avec le tableau links */}
             {links.map((link, index) => (
-              // div card1
               <div
                 key={index}
                 id="content-card1"
@@ -97,5 +96,5 @@ const Menu = () => {
     </div>
   );
 };
-// On oublie pas d'exporter son composant
+
 export default Menu;

@@ -51,16 +51,17 @@ const Description = () => {
       slidesToSlide: 1,
     },
   };
-  console.log(heroeInfos);
   return (
     <div className="bg-black">
       {heroeInfos && (
         <div className="relative flex flex-col items-center justify-center min-h-screen pt-14">
+          {/* Image du héros principal */}
           <img
             src={heroeInfos.image}
             className="object-cover w-full h-full mt-0 "
             alt="heroeInfos"
           />
+          {/* Nom du héros */}
 
           <div className="absolute text-center ">
             <h1
@@ -69,6 +70,7 @@ const Description = () => {
             >
               {heroeInfos.title}
             </h1>
+            {/* Sous-titre du héros */}
 
             <h2
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
@@ -76,7 +78,7 @@ const Description = () => {
             >
               {heroeInfos.subtitle}
             </h2>
-
+            {/* Description du héros */}
             <p
               className="ml-5 mr-5 text-center text-white "
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
@@ -86,24 +88,24 @@ const Description = () => {
           </div>
         </div>
       )}
-
+      {/* Pouvoir héroique */}
       {heroeInfos && (
         <div className="flex items-center mt-32 ">
           <div className="m-auto ml-20 ">
             <h1 className="text-3xl text-orange-600 ">
               {heroeInfos.powerHeroique}
             </h1>
-
+            {/* Citation du héros */}
             <h1 className="mt-5 text-xl text-white ">{heroeInfos.quote}</h1>
-
+            {/* Image du Pouvoir héroique */}
             <img className="" src={heroeInfos.imagePower} alt="power" />
           </div>
-
+          {/* Nom du Pouvoir héroique */}
           <div className="flex flex-col w-1/2 text-center ">
             <h1 className="mb-6 text-3xl text-orange-600 ">
               {heroeInfos.powerTitle}
             </h1>
-
+            {/* Utilité du Pouvoir héroique */}
             <p className="text-white ">{heroeInfos.utilityPower}</p>
           </div>
         </div>
@@ -112,7 +114,7 @@ const Description = () => {
       <div className="flex justify-center mt-56 text-3xl text-orange-600 underline">
         <h1>Autres Classes :</h1>
       </div>
-
+      {/* Impoter le composant carousel */}
       <div className="flex flex-col p-10 mt-20 text-white">
         <Carousel
           swipeable
@@ -128,6 +130,7 @@ const Description = () => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
+          {/* Filtrer mon tableau listClasses */}
           {listClasses &&
             listClasses
               .filter(
@@ -140,6 +143,7 @@ const Description = () => {
                   ].includes(classFilter)
               )
 
+              /* Maper mon tableau listClasses */
               .map((classe, index) => (
                 <Heroe key={index} nameClass={classe} location="Description" />
               ))}

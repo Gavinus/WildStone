@@ -41,7 +41,7 @@ const Battleground = () => {
   }, []);
 
   return (
-    // Methode pour mettre l'enfant Grid en responsive (parent en flex)
+    /* Methode pour mettre l'enfant Grid en responsive (parent en flex) */
     <div>
       {cardsClassic.length ? (
         <div id="cardbattlegroundcontainer" className="relative flex pt-14">
