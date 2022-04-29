@@ -4,7 +4,7 @@ const Rules = () => {
   return (
     <div className="content-center justify-center bg-[#B2915F] pt-28">
       <h1 className="mb-10 text-6xl text-center font-['.font/Belwe Bold.otf']">
-        {`Règles du Jeu`}
+        Règles du Jeu
       </h1>
       <div className="flex flex-col mx-10 ml-10 space-y-4 text-2xl font-['./font/Belwe Bold.otf']">
         <p>
@@ -23,7 +23,7 @@ const Rules = () => {
         </p>
         <img
           className="mx-auto"
-          src="/images/Changement cartes.png"
+          src="/assets/Changement cartes.png"
           alt="changcard"
         />
         <p>
@@ -35,7 +35,7 @@ const Rules = () => {
           sorts et utiliser le pouvoir des héros ainsi que l'équipement.`}
           <br />
         </p>
-        <img className="mx-auto" src="./images/explecard.png" alt="excard" />
+        <img className="mx-auto" src="/assets/explecard.png" alt="excard" />
         <p>
           {`Vous débutez la partie avec un point de cristal de mana. A chaque
           tour, vous recevez un point de mana supplémentaire. Le maximum de
@@ -43,7 +43,7 @@ const Rules = () => {
         </p>
         <img
           className="object-cover mx-auto "
-          src="./images/barremanaoff.png"
+          src="/assets/barremanaoff.png"
           alt="barremana"
         />
         <p>
@@ -63,7 +63,7 @@ const Rules = () => {
           {`Le serviteur attaque l'adversaire à concurrence du nombre indiqué sur
           la gemme jaune flanquée d'une épée en bas à gauche de la carte.`}
         </p>
-        <img className="mx-auto" src="./images/Alura.png" alt="alura" />
+        <img className="mx-auto" src="/assets/Alura.png" alt="alura" />
         <p>
           {`La vie d'une carte est représentée par la gemme rouge en bas à droite.`}
           <br />
@@ -78,7 +78,7 @@ const Rules = () => {
           {`La première n'est pas définie sur la carte comme Provocation (Taunt),
           Cri de bataille (Battlecry),.... Elle est donc à connaître.`}
           <br />
-          {`La seconde est celle spécifiée sur la carte.`}
+          La seconde est celle spécifiée sur la carte.
           <br />
           {`Les cartes de sort n'ont pas de valeur d'attaque ou de vie. `}
           <br />
@@ -101,7 +101,7 @@ const Rules = () => {
         </p>
         <img
           className="mx-auto"
-          src="./images/Assassinate.png"
+          src="/assets/Assassinate.png"
           alt="Assasinate"
         />
         <p>

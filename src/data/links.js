@@ -1,21 +1,21 @@
 const links = [
   {
-    path: "/rules",
+    path: "/home/rules",
     name: "Rules",
     img: 125,
   },
   {
-    path: "/heroes",
+    path: "/home/heroes",
     name: "Heroes",
     img: 5,
   },
   {
-    path: "/battleground",
+    path: "/home/battleground",
     name: "Battleground",
     img: 13,
   },
   {
-    path: "/contact",
+    path: "/home/contact",
     name: "Contact",
     img: 4,
   },

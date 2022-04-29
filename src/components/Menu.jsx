@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import links from "../data/links";
+import BarLogin from "./BarLogin";
 
 const Menu = () => {
   // Import API pour dos de carte
@@ -29,10 +30,10 @@ const Menu = () => {
   const showMenu = () => {
     setMenu(!menu);
   };
-
   return (
     // logo pour dérouler le menu au click true ou false
     <div id="logoOpenMenu">
+      <BarLogin />
       {/* div du backgroundMenu */}
       {/* Ternaire de l'enfer pour afficher ou non le menu grace au true et false */}
       <div
@@ -44,7 +45,7 @@ const Menu = () => {
           menu ? "h-screen" : "h-0"
         }`}
       >
-        <img src="./images/battleground1.png" alt="menu" className="w-full" />
+        <img src="/assets/battleground1.png" alt="menu" className="w-full" />
         {/* Parcour l'api pour recuperer les dos de carte avec leur numero directement */}
         {backCards.length && (
           <div
@@ -65,7 +66,7 @@ const Menu = () => {
                   aria-hidden
                   onKeyDown={showMenu}
                   to={link.path}
-                  className="flex justify-center items-center text-2xl	"
+                  className="flex items-center justify-center text-2xl "
                 >
                   <h1
                     className={`cursor text-white absolute text-center text-1 ${
@@ -89,9 +90,9 @@ const Menu = () => {
         onClick={() => showMenu()}
         aria-hidden
         onKeyDown={showMenu}
-        src="./images/logo-wild-heartstone.png"
+        src="/assets/logo-wild-heartstone.png"
         alt="logoOpen"
-        className="z-20 w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="fixed z-20 mx-auto my-0 mt-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer w-100 left-1/2"
       />
     </div>
   );

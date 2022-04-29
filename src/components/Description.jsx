@@ -8,10 +8,8 @@ import "react-multi-carousel/lib/styles.css";
 
 const Description = () => {
   const { nameClass } = useParams();
-  console.log(nameClass);
 
   const [heroeInfos, setHeroeInfos] = useState([]);
-  console.log(heroeInfos);
 
   const [listClasses, setListClasses] = useState([]);
   // Appel de l'API
@@ -24,7 +22,6 @@ const Description = () => {
       "X-RapidAPI-Key": "4d914d2fa4msh369949fcb214d78p15f32ajsn6d8461683d7f",
     },
   };
-  console.log(descHeroes.find((descHeroe) => descHeroe.title === nameClass));
   useEffect(() => {
     setHeroeInfos(
       descHeroes.find((descHeroe) => descHeroe.title === nameClass)
@@ -58,7 +55,7 @@ const Description = () => {
   return (
     <div className="bg-black">
       {heroeInfos && (
-        <div className="relative flex flex-col items-center justify-center min-h-screen">
+        <div className="relative flex flex-col items-center justify-center min-h-screen pt-14">
           {/* Image du héros principal */}
           <img
             src={heroeInfos.image}
@@ -94,7 +91,7 @@ const Description = () => {
       )}
       {/* Pouvoir héroique */}
       {heroeInfos && (
-        <div className="mt-32 ">
+        <div className="flex items-center mt-32 ">
           <div className="m-auto ml-20 ">
             <h1 className="text-3xl text-orange-600 ">
               {heroeInfos.powerHeroique}

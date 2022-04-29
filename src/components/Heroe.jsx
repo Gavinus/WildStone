@@ -2,9 +2,8 @@ import React from "react";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Heroe = ({ nameClass, location }) => {
+const Heroe = ({ nameClass }) => {
   // Fonction permettant de remonter en haut de la page en cliquant sur le carousel.
-  console.log(nameClass);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -14,12 +13,10 @@ const Heroe = ({ nameClass, location }) => {
   return (
     <ul className="flex flex-col items-center m-auto w-80">
       <li>
-        <Link onClick={scrollToTop} to={`/description/${nameClass}`}>
+        <Link onClick={scrollToTop} to={`/home/description/${nameClass}`}>
           <img
             className="object-cover h-56"
-            src={`${
-              location === "Description" ? ".." : "."
-            }/images/classes/${nameClass}.png`}
+            src={`/assets/classes/${nameClass}.png`}
             alt="image_hero"
           />
           <h2 className="text-center"> {nameClass}</h2>
@@ -31,7 +28,6 @@ const Heroe = ({ nameClass, location }) => {
 
 Heroe.propTypes = {
   nameClass: Proptypes.string.isRequired,
-  location: Proptypes.string.isRequired,
 };
 
 export default Heroe;
