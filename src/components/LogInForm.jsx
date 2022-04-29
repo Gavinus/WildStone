@@ -49,12 +49,12 @@ const LoginForm = () => {
         </label>
       </div>
 
-      <div>
+      <div className="flex justify-around">
         <Link to="./rules">
           <button
             type="submit"
             onClick={clickChange}
-            className="p-1 text-sm text-white uppercase bg-blue-500 rounded-lg w-28 hover:text-yellow-400"
+            className="h-12 p-1 text-sm text-white uppercase bg-blue-500 rounded-lg w-28 hover:text-yellow-400"
           >
             Se connecter
           </button>
@@ -62,7 +62,7 @@ const LoginForm = () => {
         <Link to="./rules">
           <button
             type="submit"
-            className="p-1 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 ml-[26px]"
+            className="h-12 p-1 ml-5 text-sm text-white uppercase border-2 border-blue-500 rounded-lg w-28 hover:text-yellow-400 "
             onClick={clickInvit}
           >
             Invité
