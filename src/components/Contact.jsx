@@ -3,7 +3,7 @@ import Stars from "./Stars";
 
 const Contact = () => {
   return (
-    /* Je divise la page en deux vi du grid , afin de séparer la page et de mettre l'img a gauche et le formulaire à droite*/
+    /* Je divise la page en deux vi du grid , afin de séparer la page et de mettre l'img a gauche et le formulaire à droite */
     <div className="grid grid-cols-2 gap-4 bg-black">
       <img className="h-full" src="/assets/dessincontact.png" alt="contact" />
 
