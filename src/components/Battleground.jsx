@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import shuffle from "../lib/utils";
 
+// Appel API
 const Battleground = () => {
   const options = {
     method: "GET",
@@ -11,39 +13,80 @@ const Battleground = () => {
     },
   };
 
+  // State de cardsClassic
   const [cardsClassic, setCardsClassic] = useState([]);
 
+  // useEffect pour import mes Cards de l'api une fois au chargement de la page, filtré par props
   useEffect(() => {
     axios
       .request(options)
       .then((res) => res.data)
-      .then((data) => setCardsClassic(data));
+      .then((data) => {
+        const filterCards = data.Classic.filter(
+          (card) =>
+            card.name &&
+            card.attack &&
+            card.cost &&
+            card.imgGold &&
+            card.health &&
+            card
+        );
+
+        // Variable random avec fonction shuffle pour afficher les cartes de l'api en mode aléatoire
+        const random = shuffle(filterCards);
+        console.log(random);
+        // slice de random pour en recup 70 sur les 130
+        setCardsClassic(random.slice(0, 70));
+      });
   }, []);
 
   return (
-    <div id="battlegroundContainer">
-      <div id="cardbattlegroundcontainer">
-        <img
-          src="./images/battlegroundgame2.jpg"
-          alt="battleground"
-          className="w-full"
+    // Methode pour mettre l'enfant Grid en responsive (parent en flex)
+    <div id="cardbattlegroundcontainer" className="relative flex">
+      <img
+        src="./images/battlegroundgame2.jpg"
+        alt="battleground"
+        className="w-full"
+      />
+
+      {/* Grid pour l'affichage des cartes sur le battleground */}
+      <div
+        id="battlegroundContainer"
+        className="absolute top-0 grid w-full h-full grid-cols-1 grid-rows-[10%_19%_1fr_1fr_16%_16%] justify-items-center"
+      >
+        <div className=" w-full h-full" />
+
+        <div
+          id="ennemyHero"
+          className="w-[8.5%] h-[85%] bg-[url('../images/classes/Guerrier.png')] bg-[length:100%] flex justify-center"
         />
-        <div id="ennemyHero" className="" />
-        <div id="cardBattlegroundEnnemy1" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy2" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy3" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy4" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy5" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy6" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundEnnemy7" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie1" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie2" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie3" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie4" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie5" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie6" className="w-20 h-20 bg-slate-300" />
-        <div id="cardBattlegroundAllie7" className="w-20 h-20 bg-slate-300" />
-        <div id="allieHero" className="w-20 h-20 bg-slate-300" />
+        <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
+          {/* on map 7 cartes des 70 et on les affiches */}
+          {cardsClassic.slice(0, 7).map((card) => (
+            <div id="cardBattlegroundEnnemy1" className="w-20 h-20 ">
+              <img
+                src={card.imgGold}
+                alt={card.name}
+                className="w-[6.5%] cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
+          {cardsClassic.slice(7, 14).map((card) => (
+            <div id="cardBattlegroundAllie1" className="w-20 h-20 ">
+              <img
+                src={card.imgGold}
+                alt={card.name}
+                className="w-[6.5%]  cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
+              />
+            </div>
+          ))}
+        </div>
+        <div
+          id="allieHero"
+          className="w-[8.5%] h-[100%] bg-[url('../images/classes/Druide.png')] bg-[length:18vw] flex justify-center bg-no-repeat pr-[18.5%]"
+        />
       </div>
     </div>
   );

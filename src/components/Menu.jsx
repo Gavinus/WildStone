@@ -29,8 +29,6 @@ const Menu = () => {
   const showMenu = () => {
     setMenu(!menu);
   };
-  // console.log pour savoir si au click ca passe true ou false
-  console.log(menu);
 
   return (
     // logo pour dérouler le menu au click true ou false
@@ -42,12 +40,9 @@ const Menu = () => {
         aria-hidden
         onKeyDown={showMenu}
         id="menu"
-        className={`flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
+        className={`z-20 flex justify-center items-center overflow-hidden transition-all ease-in-out duration-500 fixed w-full top-12 ${
           menu ? "h-screen" : "h-0"
         }`}
-        // className={`${
-        //   menu ? "h-32" : "h-0"
-        // } transition-all delay-150 duration-300 overflow-hidden w-full`}
       >
         <img src="./images/battleground1.png" alt="menu" className="w-full" />
         {/* Parcour l'api pour recuperer les dos de carte avec leur numero directement */}
@@ -64,7 +59,7 @@ const Menu = () => {
                 id="content-card1"
                 className="flex justify-center items-center ml-4 animate-[float_2s_ease-in-out_infinite]"
               >
-                {/* Test du link qui doit pas etre au bon endroit "mauvais affichage sur le menu" */}
+                {/* Test du link */}
                 <Link
                   onClick={() => showMenu()}
                   aria-hidden
@@ -96,7 +91,7 @@ const Menu = () => {
         onKeyDown={showMenu}
         src="./images/logo-wild-heartstone.png"
         alt="logoOpen"
-        className="w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="z-20 w-100 cursor-pointer my-0 mx-auto mt-12 fixed left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );
