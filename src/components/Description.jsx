@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Carousel from "react-multi-carousel";
+import Slider from "react-slick";
 import descHeroes from "../data/descHeroes";
 import Heroe from "./Heroe";
-import "react-multi-carousel/lib/styles.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Description = () => {
   const { nameClass } = useParams();
@@ -34,22 +35,38 @@ const Description = () => {
     // find one heroe
   }, [nameClass]);
   // Package du carousel
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="bg-black">
@@ -105,7 +122,6 @@ const Description = () => {
             <h1 className="mb-6 text-3xl text-orange-600 ">
               {heroeInfos.powerTitle}
             </h1>
-            {/* Utilité du Pouvoir héroique */}
             <p className="text-white ">{heroeInfos.utilityPower}</p>
           </div>
         </div>
@@ -114,23 +130,8 @@ const Description = () => {
       <div className="flex justify-center mt-56 text-3xl text-orange-600 underline">
         <h1>Autres Classes :</h1>
       </div>
-      {/* Impoter le composant carousel */}
       <div className="flex flex-col p-10 mt-20 text-white">
-        <Carousel
-          swipeable
-          draggable={false}
-          showDots={false}
-          responsive={responsive}
-          infinite={false}
-          arrows
-          keyBoardControl
-          customTransition="all .5s"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          {/* Filtrer mon tableau listClasses */}
+        <Slider {...settings}>
           {listClasses &&
             listClasses
               .filter(
@@ -143,11 +144,10 @@ const Description = () => {
                   ].includes(classFilter)
               )
 
-              /* Maper mon tableau listClasses */
               .map((classe, index) => (
                 <Heroe key={index} nameClass={classe} location="Description" />
               ))}
-        </Carousel>
+        </Slider>
       </div>
     </div>
   );
