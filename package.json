@@ -1,5 +1,5 @@
 {
-  "name": "template-frontend",
+  "name": "wild_stone",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,12 +7,22 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "echo '----- Checking Frontend...' && prettier --debug-check . && eslint --ext .jsx . && echo '----- Done!'",
-    "fix": "prettier --write . && eslint --fix --ext .jsx ."
+    "fix": "prettier --write . && eslint --fix --ext .jsx .",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.6.3",
+    "axios": "^0.26.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-native-easy-rating": "^0.2.1",
+    "react-router-dom": "^6.3.0",
+    "react-simple-star-rating": "^4.0.5",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
