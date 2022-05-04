@@ -18,4 +18,10 @@ function shuffle(array) {
   return array;
 }
 
-export default shuffle;
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+export { shuffle, getRandom };

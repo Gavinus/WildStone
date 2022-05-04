@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import datas from "./data.js";
 import "./card.css";
-import Card from "./Card.jsx";
+import Cardmemory from "./Cardmemory";
 
 const Memory = () => {
   // On declare des ustates pour le choix des cartes
@@ -73,7 +73,7 @@ const Memory = () => {
         <div className="box-content">
           <div className="grid grid-cols-5 mx-4 my-10">
             {cards.map((card) => (
-              <Card
+              <Cardmemory
                 key={card.id}
                 card={card}
                 cardimage={card.image}
