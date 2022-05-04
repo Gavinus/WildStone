@@ -75,7 +75,11 @@ const Description = () => {
           {/* Image du héros principal */}
           <img
             src={heroeInfos.image}
-            className="object-cover h-[100vh] w-[100vw] object-right"
+            className={`object-cover h-[100vh] w-[100vw] ${
+              heroeInfos.id === 0 || heroeInfos.id === 6
+                ? "bp2:object-right"
+                : ""
+            } `}
             alt="heroeInfos"
           />
           {/* Nom du héros */}
