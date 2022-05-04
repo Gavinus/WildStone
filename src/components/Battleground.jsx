@@ -7,7 +7,8 @@ import Loader from "./Loader";
 const Battleground = () => {
   const options = {
     method: "GET",
-    url: "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards",
+    params: { collectible: "1" },
+    url: "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/types/minion'",
     headers: {
       "X-RapidAPI-Host": "omgvamp-hearthstone-v1.p.rapidapi.com",
       "X-RapidAPI-Key": "64c73ad198msh10a53337deb82f3p1bf96djsn404418418ccd",
@@ -23,7 +24,7 @@ const Battleground = () => {
       .request(options)
       .then((res) => res.data)
       .then((data) => {
-        const filterCards = data.Classic.filter(
+        const filterCards = data.filter(
           (card) =>
             card.name &&
             card.attack &&
@@ -36,7 +37,7 @@ const Battleground = () => {
         // Variable random avec fonction shuffle pour afficher les cartes de l'api en mode aléatoire
         const random = shuffle(filterCards);
         // slice de random pour en recup 70 sur les 130
-        setCardsClassic(random.slice(0, 70));
+        setCardsClassic(random.slice(0, 14));
       });
   }, []);
 
