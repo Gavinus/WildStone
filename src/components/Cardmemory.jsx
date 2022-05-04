@@ -9,8 +9,6 @@ const Cardmemory = ({ card, choixHand, flipped, disabled }) => {
     }
   };
 
-  console.log(card);
-
   return (
     <div className="card">
       <div
