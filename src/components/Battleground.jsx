@@ -3,6 +3,7 @@ import axios from "axios";
 import shuffle from "../lib/utils";
 import Loader from "./Loader";
 import Card from "./Card";
+import fighting from "../lib/fight";
 
 // Appel API
 const Battleground = () => {
@@ -19,46 +20,75 @@ const Battleground = () => {
   // State de cardsClassic
   const [cardsAlly, setCardsAlly] = useState([]);
   const [cardsEnnemy, setCardsEnnemy] = useState([]);
-  //   const [count, setCount] = useState(0);
+  const [round, setRound] = useState(false);
+  const [message, setMessage] = useState("");
+  const [message2, setMessage2] = useState("");
 
-  //   const arrayFighting = [];
+  const changeTurn = () => {
+    setRound(!round);
+    setCardsAlly((value) =>
+      value.map((card) => ({
+        ...card,
+        clan: card.clan === "ally" ? "ennemy" : "ally",
+        used: false,
+      }))
+    );
+    setCardsEnnemy((value) =>
+      value.map((card) => ({
+        ...card,
+        clan: card.clan === "ennemy" ? "ally" : "ennemy",
+        used: false,
+      }))
+    );
+  };
 
-  //   const fighting = async (card) => {
-  //     if (arrayFighting.length < 2) {
-  //       if (arrayFighting.length === 0) {
-  //         if (card.clan === "ally" && !card.used) {
-  //           arrayFighting.push(card);
-  //         } else {
-  //           console.log(card.used ? "Choose a card no used" : "Choose your card");
-  //         }
-  //       } else if (card.clan === "ennemy") {
-  //         arrayFighting.push(card);
-  //         const attacked = cardsEnnemy.map((ennemy) => {
-  //           let { health } = ennemy;
-  //           if (ennemy.cardId === arrayFighting[1].cardId) {
-  //             health = ennemy.health - arrayFighting[0].attack;
-  //           }
-  //           return { ...ennemy, health };
-  //         });
+  function getRandom(min, max) {
+    // eslint-disable-next-line no-param-reassign
+    min = Math.ceil(min);
+    // eslint-disable-next-line no-param-reassign
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
-  //         const attacker = cardsAlly.map((ally) => {
-  //           let { used, health } = ally;
-  //           if (ally.cardId === arrayFighting[0].cardId) {
-  //             used = true;
-  //             health = ally.health - arrayFighting[1].attack;
-  //           }
+  useEffect(() => {
+    setMessage(!round ? "Your turn" : "Ennemy turn");
+    const ennemyLength = cardsEnnemy.filter(
+      (card) => !card.used && card.health > 0
+    );
+    const allyLength = cardsAlly.filter((card) => card.health > 0);
+    if (round) {
+      if (allyLength.length > 0 && ennemyLength.length > 0) {
+        setTimeout(() => {
+          fighting(
+            ennemyLength[getRandom(0, ennemyLength.length)],
+            setCardsAlly,
+            setCardsEnnemy,
+            setMessage2
+          );
+        }, 300);
 
-  //           return { ...ally, health, used };
-  //         });
+        setTimeout(() => {
+          fighting(
+            allyLength[getRandom(0, allyLength.length)],
+            setCardsAlly,
+            setCardsEnnemy,
+            setMessage2
+          );
+        }, 600);
+      }
 
-  //         setCardsEnnemy(attacked);
-  //         setCardsAlly(attacker);
-  //         console.log(cardsAlly);
-  //       } else {
-  //         console.log("Please, choose an ennemy");
-  //       }
-  //     }
-  //   };
+      const finishRound = cardsEnnemy.every((card) => card.used);
+      if (finishRound) changeTurn();
+    }
+    if (
+      cardsEnnemy.every((ennemy) => ennemy.health <= 0) ||
+      cardsAlly.every((ennemy) => ennemy.health <= 0)
+    ) {
+      if (!ennemyLength.length && allyLength) setMessage("You wins");
+      else if (!allyLength.length && ennemyLength) setMessage("Ennemy wins");
+      else setMessage("Equal");
+    }
+  }, [round, cardsEnnemy, cardsAlly]);
 
   // useEffect pour import mes Cards de l'api une fois au chargement de la page, filtré par props
   useEffect(() => {
@@ -97,6 +127,14 @@ const Battleground = () => {
     <div>
       {cardsAlly.length && cardsEnnemy.length ? (
         <div id="cardbattlegroundcontainer" className="relative flex pt-14">
+          <p className="absolute text-xl text-center text-white w-min top-1/2 left-12">
+            {message}
+          </p>
+          {!round && (
+            <p className="absolute text-xl text-center text-white w-min top-1/2 right-12">
+              {message2}
+            </p>
+          )}
           <img
             src="/assets/battlegroundgame2.jpg"
             alt="battleground"
@@ -121,12 +159,11 @@ const Battleground = () => {
               {cardsEnnemy.map((card, index) => (
                 <Card
                   key={index}
+                  round={round}
                   card={card}
-                  //   fighting={fighting}
-                  cardsAlly={cardsAlly}
-                  cardsEnnemy={cardsEnnemy}
                   setCardsAlly={setCardsAlly}
                   setCardsEnnemy={setCardsEnnemy}
+                  setMessage2={setMessage2}
                 />
               ))}
             </div>
@@ -134,12 +171,11 @@ const Battleground = () => {
               {cardsAlly.map((card, index) => (
                 <Card
                   key={index}
+                  round={round}
                   card={card}
-                  //   fighting={fighting}
-                  cardsAlly={cardsAlly}
-                  cardsEnnemy={cardsEnnemy}
                   setCardsAlly={setCardsAlly}
                   setCardsEnnemy={setCardsEnnemy}
+                  setMessage2={setMessage2}
                 />
               ))}
             </div>
