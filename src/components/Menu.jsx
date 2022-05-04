@@ -68,16 +68,15 @@ const Menu = () => {
                   className="flex items-center justify-center text-2xl "
                 >
                   <h1
-                    className={`cursor text-white absolute text-center text-1 ${
-                      menu ? "block" : "hidden"
-                    }`}
+                    className={`z-[2] cursor text-white absolute text-center text-1  
+                    ${menu ? "block" : "hidden"}`}
                   >
                     {link.name}
                   </h1>
                   <img
                     src={backCards[link.img].img}
                     alt="card1"
-                    className={` ${menu ? "block" : "hidden"}`}
+                    className={`brightness-[0.7] ${menu ? "block" : "hidden"}`}
                   />
                 </Link>
               </div>
