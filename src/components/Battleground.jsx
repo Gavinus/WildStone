@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import shuffle from "../lib/utils";
 import Loader from "./Loader";
+import Card from "./Card";
 
 // Appel API
 const Battleground = () => {
@@ -16,7 +17,8 @@ const Battleground = () => {
   };
 
   // State de cardsClassic
-  const [cardsClassic, setCardsClassic] = useState([]);
+  const [cardsAlly, setCardsAlly] = useState([]);
+  const [cardsEnnemy, setCardsEnnemy] = useState([]);
 
   // useEffect pour import mes Cards de l'api une fois au chargement de la page, filtré par props
   useEffect(() => {
@@ -24,27 +26,36 @@ const Battleground = () => {
       .request(options)
       .then((res) => res.data)
       .then((data) => {
-        const filterCards = data.filter(
-          (card) =>
-            card.name &&
-            card.attack &&
-            card.cost &&
-            card.imgGold &&
-            card.health &&
-            card
-        );
+        const filterCards = data
+          .filter(
+            (card) =>
+              card.name &&
+              card.attack &&
+              card.cost &&
+              card.imgGold &&
+              card.health &&
+              card
+          )
+          .map((card) => ({ ...card, used: false }));
 
         // Variable random avec fonction shuffle pour afficher les cartes de l'api en mode aléatoire
         const random = shuffle(filterCards);
+        const ennemy = random
+          .slice(0, 7)
+          .map((card) => ({ ...card, clan: "ennemy" }));
+        const ally = random
+          .slice(7, 14)
+          .map((card) => ({ ...card, clan: "ally" }));
         // slice de random pour en recup 70 sur les 130
-        setCardsClassic(random.slice(0, 14));
+        setCardsEnnemy(ennemy);
+        setCardsAlly(ally);
       });
   }, []);
 
   return (
     /* Methode pour mettre l'enfant Grid en responsive (parent en flex) */
     <div>
-      {cardsClassic.length ? (
+      {cardsAlly.length && cardsEnnemy.length ? (
         <div id="cardbattlegroundcontainer" className="relative flex pt-14">
           <img
             src="/assets/battlegroundgame2.jpg"
@@ -64,35 +75,32 @@ const Battleground = () => {
               id="ennemyHero"
               className="w-[8.5%] h-[85%] bg-[url('/assets/classes/Guerrier.png')] bg-[length:100%] flex justify-center"
             />
+            {/* <p className="text-3xl text-white">{round}</p> */}
             <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
               {/* on map 7 cartes des 70 et on les affiches */}
-              {cardsClassic.slice(0, 7).map((card, index) => (
-                <div
+              {cardsEnnemy.map((card, index) => (
+                <Card
                   key={index}
-                  id="cardBattlegroundEnnemy1"
-                  className="w-20 h-20 "
-                >
-                  <img
-                    src={card.imgGold}
-                    alt={card.name}
-                    className="w-[6.5%] cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
-                  />
-                </div>
+                  card={card}
+                  //   fighting={fighting}
+                  cardsAlly={cardsAlly}
+                  cardsEnnemy={cardsEnnemy}
+                  setCardsAlly={setCardsAlly}
+                  setCardsEnnemy={setCardsEnnemy}
+                />
               ))}
             </div>
             <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
-              {cardsClassic.slice(7, 14).map((card, index) => (
-                <div
+              {cardsAlly.map((card, index) => (
+                <Card
                   key={index}
-                  id="cardBattlegroundAllie1"
-                  className="w-20 h-20 "
-                >
-                  <img
-                    src={card.imgGold}
-                    alt={card.name}
-                    className="w-[6.5%]  cursor-pointer overflow-hidden transition-all ease-in-out duration-500 hover:w-[15%] hover:z-10 absolute"
-                  />
-                </div>
+                  card={card}
+                  //   fighting={fighting}
+                  cardsAlly={cardsAlly}
+                  cardsEnnemy={cardsEnnemy}
+                  setCardsAlly={setCardsAlly}
+                  setCardsEnnemy={setCardsEnnemy}
+                />
               ))}
             </div>
             <div
