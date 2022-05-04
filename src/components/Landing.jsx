@@ -15,7 +15,7 @@ const Landing = () => {
   return (
     <div className="bg-no-repeat bg-center h-screen bg-[url('/assets/image-fond-landing-page.png')]">
       <div className="flex flex-wrap content-center justify-center h-screen ...">
-        <div>
+        <div className="md:flex md:items-center">
           <img
             className={`cursor-pointer md:w-48 lg:w-80 xl:w-96 ${Dorsleft ? "-translate-x-5 " : ""
               } transition ease-out duration-500`}
@@ -32,7 +32,7 @@ const Landing = () => {
         >
           <LoginForm />
         </div>
-        <div>
+        <div className="md:flex md:items-center">
           <img
             className={` cursor-pointer md:w-48 lg:w-80 xl:w-96 ${Dorsleft ? "translate-x-5" : ""
               } transition ease-out duration-500`}
