@@ -12,7 +12,7 @@ const datas = [
   {
     type: "forge",
     matched: false,
-    image: "./public/assets/forge.png",
+    image: "./assets/forge.png",
   },
   {
     type: "fracasseur",
