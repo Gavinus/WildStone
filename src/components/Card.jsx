@@ -2,14 +2,7 @@ import { PropTypes } from "prop-types";
 import { useState } from "react";
 import fighting from "../lib/fight";
 
-const Card = ({
-  card,
-  //   fighting,
-  cardsAlly,
-  cardsEnnemy,
-  setCardsAlly,
-  setCardsEnnemy,
-}) => {
+const Card = ({ card, round, setCardsAlly, setCardsEnnemy, setMessage2 }) => {
   const [selected, setSelected] = useState(false);
   return (
     <div
@@ -17,11 +10,13 @@ const Card = ({
       className={`w-28 h-20 ${card.health <= 0 ? "hidden" : "block"}`}
       onClick={() => {
         setSelected(true);
-        fighting(card, setCardsEnnemy, cardsEnnemy, setCardsAlly, cardsAlly);
+        return round
+          ? fighting(card, setCardsAlly, setCardsEnnemy, setMessage2)
+          : fighting(card, setCardsEnnemy, setCardsAlly, setMessage2);
       }}
       onKeyDown={() => {
         setSelected(true);
-        fighting(card, setCardsEnnemy, cardsEnnemy, setCardsAlly, cardsAlly);
+        fighting(card, setCardsEnnemy, setCardsAlly, setMessage2);
       }}
       aria-hidden
     >
@@ -56,28 +51,10 @@ Card.propTypes = {
     attack: PropTypes.number,
     clan: PropTypes.string,
   }).isRequired,
-  cardsAlly: PropTypes.arrayOf(
-    PropTypes.shape({
-      imgGold: PropTypes.string,
-      name: PropTypes.string,
-      used: PropTypes.bool,
-      health: PropTypes.number,
-      attack: PropTypes.number,
-      clan: PropTypes.string,
-    })
-  ).isRequired,
-  cardsEnnemy: PropTypes.arrayOf(
-    PropTypes.shape({
-      imgGold: PropTypes.string,
-      name: PropTypes.string,
-      used: PropTypes.bool,
-      health: PropTypes.number,
-      attack: PropTypes.number,
-      clan: PropTypes.string,
-    })
-  ).isRequired,
   setCardsAlly: PropTypes.func.isRequired,
   setCardsEnnemy: PropTypes.func.isRequired,
+  setMessage2: PropTypes.func.isRequired,
+  round: PropTypes.bool.isRequired,
 };
 
 export default Card;

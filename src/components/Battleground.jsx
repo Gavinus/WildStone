@@ -3,6 +3,7 @@ import axios from "axios";
 import { shuffle } from "../lib/utils";
 import Loader from "./Loader";
 import Card from "./Card";
+import fighting from "../lib/fight";
 
 // Appel API
 const Battleground = () => {
@@ -19,6 +20,75 @@ const Battleground = () => {
   // State de cardsClassic
   const [cardsAlly, setCardsAlly] = useState([]);
   const [cardsEnnemy, setCardsEnnemy] = useState([]);
+  const [round, setRound] = useState(false);
+  const [message, setMessage] = useState("");
+  const [message2, setMessage2] = useState("");
+
+  const changeTurn = () => {
+    setRound(!round);
+    setCardsAlly((value) =>
+      value.map((card) => ({
+        ...card,
+        clan: card.clan === "ally" ? "ennemy" : "ally",
+        used: false,
+      }))
+    );
+    setCardsEnnemy((value) =>
+      value.map((card) => ({
+        ...card,
+        clan: card.clan === "ennemy" ? "ally" : "ennemy",
+        used: false,
+      }))
+    );
+  };
+
+  function getRandom(min, max) {
+    // eslint-disable-next-line no-param-reassign
+    min = Math.ceil(min);
+    // eslint-disable-next-line no-param-reassign
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  useEffect(() => {
+    setMessage(!round ? "Your turn" : "Ennemy turn");
+    const ennemyLength = cardsEnnemy.filter(
+      (card) => !card.used && card.health > 0
+    );
+    const allyLength = cardsAlly.filter((card) => card.health > 0);
+    if (round) {
+      if (allyLength.length > 0 && ennemyLength.length > 0) {
+        setTimeout(() => {
+          fighting(
+            ennemyLength[getRandom(0, ennemyLength.length)],
+            setCardsAlly,
+            setCardsEnnemy,
+            setMessage2
+          );
+        }, 300);
+
+        setTimeout(() => {
+          fighting(
+            allyLength[getRandom(0, allyLength.length)],
+            setCardsAlly,
+            setCardsEnnemy,
+            setMessage2
+          );
+        }, 600);
+      }
+
+      const finishRound = cardsEnnemy.every((card) => card.used);
+      if (finishRound) changeTurn();
+    }
+    if (
+      cardsEnnemy.every((ennemy) => ennemy.health <= 0) ||
+      cardsAlly.every((ennemy) => ennemy.health <= 0)
+    ) {
+      if (!ennemyLength.length && allyLength) setMessage("You wins");
+      else if (!allyLength.length && ennemyLength) setMessage("Ennemy wins");
+      else setMessage("Equal");
+    }
+  }, [round, cardsEnnemy, cardsAlly]);
 
   // useEffect pour import mes Cards de l'api une fois au chargement de la page, filtré par props
   useEffect(() => {
@@ -57,6 +127,14 @@ const Battleground = () => {
     <div>
       {cardsAlly.length && cardsEnnemy.length ? (
         <div id="cardbattlegroundcontainer" className="relative flex pt-14">
+          <p className="absolute text-xl text-center text-white w-min top-1/2 left-12">
+            {message}
+          </p>
+          {!round && (
+            <p className="absolute text-xl text-center text-white w-min top-1/2 right-12">
+              {message2}
+            </p>
+          )}
           <img
             src="/assets/battlegroundgame2.jpg"
             alt="battleground"
@@ -81,16 +159,16 @@ const Battleground = () => {
               {cardsEnnemy.map((card, index) => (
                 <Card
                   key={index}
+                  round={round}
                   card={card}
-                  //   fighting={fighting}
-                  cardsAlly={cardsAlly}
-                  cardsEnnemy={cardsEnnemy}
                   setCardsAlly={setCardsAlly}
                   setCardsEnnemy={setCardsEnnemy}
+                  setMessage2={setMessage2}
                 />
               ))}
             </div>
             <input
+              onClick={changeTurn}
               type="image"
               alt="button"
               className=" h-[5%] absolute z-10 top-[46.5%] right-[14.5%] w-[6.5%]"
@@ -100,12 +178,11 @@ const Battleground = () => {
               {cardsAlly.map((card, index) => (
                 <Card
                   key={index}
+                  round={round}
                   card={card}
-                  //   fighting={fighting}
-                  cardsAlly={cardsAlly}
-                  cardsEnnemy={cardsEnnemy}
                   setCardsAlly={setCardsAlly}
                   setCardsEnnemy={setCardsEnnemy}
+                  setMessage2={setMessage2}
                 />
               ))}
             </div>

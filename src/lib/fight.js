@@ -1,19 +1,21 @@
 let arrayFighting = [];
 
-const fighting = (card, setDefenser, defenser, setAttacker, attacker) => {
+const fighting = (card, setDefenser, setAttacker, setMessage) => {
   if (arrayFighting.length === 2) arrayFighting = [];
   if (arrayFighting.length < 2) {
     if (arrayFighting.length === 0) {
       if (card.clan === "ally" && !card.used) {
         arrayFighting.push(card);
+        setMessage("");
       } else {
-        console.log(card.used ? "Choose a card no used" : "Choose your card");
+        setMessage(card.used ? "Choose a card no used" : "Choose your card");
       }
     } else if (card.clan === "ennemy") {
       arrayFighting.push(card);
+      setMessage("");
 
-      setDefenser(
-        defenser.map((ennemy) => {
+      setDefenser((value) =>
+        value.map((ennemy) => {
           let { health } = ennemy;
           if (ennemy.cardId === arrayFighting[1].cardId) {
             health = ennemy.health - arrayFighting[0].attack;
@@ -21,8 +23,8 @@ const fighting = (card, setDefenser, defenser, setAttacker, attacker) => {
           return { ...ennemy, health };
         })
       );
-      setAttacker(
-        attacker.map((ally) => {
+      setAttacker((value) =>
+        value.map((ally) => {
           let { used, health } = ally;
           if (ally.cardId === arrayFighting[0].cardId) {
             used = true;
@@ -31,12 +33,11 @@ const fighting = (card, setDefenser, defenser, setAttacker, attacker) => {
           return { ...ally, health, used };
         })
       );
-      console.log(attacker);
+      setMessage("");
     } else {
-      console.log("Please, choose an ennemy");
+      setMessage("Please, choose an ennemy");
     }
   }
-  console.log(arrayFighting);
 };
 
 export default fighting;
