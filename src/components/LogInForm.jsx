@@ -45,6 +45,7 @@ const LoginForm = () => {
             name="check"
             className="border-2 border-blue-500 rounded hover:border-yellow-400"
           />
+          <span className="mr-1.5" />
           Rester connecté
         </label>
       </div>
