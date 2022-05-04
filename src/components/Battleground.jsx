@@ -93,7 +93,7 @@ const Battleground = () => {
             <input
               type="image"
               alt="button"
-              className=" h-[5%] absolute z-20 top-[46.5%] right-[14.5%] w-[6.5%]"
+              className=" h-[5%] absolute z-10 top-[46.5%] right-[14.5%] w-[6.5%]"
               src="/assets/end_turn.png"
             />
             <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
