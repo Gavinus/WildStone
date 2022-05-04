@@ -10,7 +10,7 @@ const links = [
     img: 5,
   },
   {
-    path: "/home/battleground",
+    path: "/home/choice",
     name: "Battleground",
     img: 13,
   },

@@ -1,4 +1,8 @@
 node_modules/
 package-lock.json
+<<<<<<< Updated upstream
 dist
+=======
+dist/
+>>>>>>> Stashed changes
 .vercel
