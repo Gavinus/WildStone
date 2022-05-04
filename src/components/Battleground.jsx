@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import shuffle from "../lib/utils";
+import { shuffle } from "../lib/utils";
 import Loader from "./Loader";
 import Card from "./Card";
 
@@ -90,6 +90,12 @@ const Battleground = () => {
                 />
               ))}
             </div>
+            <input
+              type="image"
+              alt="button"
+              className=" h-[5%] absolute z-20 top-[46.5%] right-[14.5%] w-[6.5%]"
+              src="/assets/end_turn.png"
+            />
             <div className="flex justify-around w-[55%] p-[0 60px 0 25px] m-[0_30px_0_10px]">
               {cardsAlly.map((card, index) => (
                 <Card
@@ -105,7 +111,7 @@ const Battleground = () => {
             </div>
             <div
               id="allieHero"
-              className="w-[8.5%] h-[100%] bg-[url('/assets/classes/Druide.png')] bg-[length:18vw] flex justify-center bg-no-repeat pr-[18.5%]"
+              className="w-[8.5%] h-[100%] bg-[url('/assets/classes/Druide.png')] bg-[length:18vw] flex justify-center bg-no-repeat pr-[18%]"
             />
           </div>
         </div>
