@@ -21,7 +21,7 @@ const Choice = () => {
       </div>
 
       <div className="relative w-1/2 bp3:w-full bp3:h-1/2">
-        <Link to="/home/choice/memories">
+        <Link to="/home/choice/memory">
           <img
             className="object-cover w-full h-full "
             src="https://cdn.discordapp.com/attachments/960537598365958174/971327122939478026/Capture_decran_2022-05-04_a_10.26.44.png"
