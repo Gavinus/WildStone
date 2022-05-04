@@ -70,8 +70,8 @@ const Memory = () => {
       <h1>magic card</h1>
       <h2>{turns}</h2>
       <div>
-        <div className="box-content border-4">
-          <div className="grid grid-cols-5 my-20 -mx-1.5">
+        <div className="box-content">
+          <div className="grid grid-cols-5 mx-4 my-10">
             {cards.map((card) => (
               <Card
                 key={card.id}
@@ -90,7 +90,7 @@ const Memory = () => {
             type="button"
             onClick={melangeCards}
           >
-            NewGame
+            Nouveau jeu
           </button>
         </div>
       </div>

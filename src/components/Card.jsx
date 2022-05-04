@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-// import backCard from "../public/assets/back-card.png";
 import "./card.css";
 
 const Card = ({ card, choixHand, flipped, disabled }) => {
@@ -9,6 +8,8 @@ const Card = ({ card, choixHand, flipped, disabled }) => {
       choixHand(card);
     }
   };
+
+  console.log(card);
 
   return (
     <div className="card">
@@ -33,10 +34,15 @@ const Card = ({ card, choixHand, flipped, disabled }) => {
 };
 
 Card.propTypes = {
-  choixHand: PropTypes.string.isRequired,
-  flipped: PropTypes.string.isRequired,
-  disabled: PropTypes.string.isRequired,
-  card: PropTypes.string.isRequired,
+  choixHand: PropTypes.func.isRequired,
+  flipped: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool.isRequired,
+
+  card: PropTypes.shape({
+    image: PropTypes.string,
+    matched: PropTypes.bool,
+    type: PropTypes.string,
+  }).isRequired,
 };
 
 export default Card;
