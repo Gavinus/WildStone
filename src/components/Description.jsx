@@ -75,14 +75,18 @@ const Description = () => {
           {/* Image du héros principal */}
           <img
             src={heroeInfos.image}
-            className="object-cover w-full h-full mt-0 "
+            className={`object-cover h-[100vh] w-[100vw] ${
+              heroeInfos.id === 0 || heroeInfos.id === 6
+                ? "bp2:object-right"
+                : ""
+            } `}
             alt="heroeInfos"
           />
           {/* Nom du héros */}
 
           <div className="absolute text-center ">
             <h1
-              className="text-5xl text-white mt-80 max-w-prose-sm:text-base"
+              className="text-5xl text-white mt-80 max-w-prose-sm:text-base bp3:mt-44"
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
             >
               {heroeInfos.title}
@@ -107,22 +111,29 @@ const Description = () => {
       )}
       {/* Pouvoir héroique */}
       {heroeInfos && (
-        <div className="flex items-center mt-32 ">
-          <div className="m-auto ml-20 ">
-            <h1 className="text-3xl text-orange-600 ">
+        <div className="flex flex-col items-center justify-start gap-40 mt-32 ">
+          <div className="flex flex-col items-center justify-start">
+            <h1 className="text-[3rem] text-orange-600 text-center bp3:text-[2.5rem]">
               {heroeInfos.powerHeroique}
             </h1>
             {/* Citation du héros */}
-            <h1 className="mt-5 text-xl text-white ">{heroeInfos.quote}</h1>
+            <h1 className="mt-5 text-[1.5rem] text-white text-center bp3:text-[1rem] ">
+              {heroeInfos.quote}
+            </h1>
             {/* Image du Pouvoir héroique */}
-            <img className="" src={heroeInfos.imagePower} alt="power" />
           </div>
           {/* Nom du Pouvoir héroique */}
-          <div className="flex flex-col w-1/2 text-center ">
-            <h1 className="mb-6 text-3xl text-orange-600 ">
-              {heroeInfos.powerTitle}
-            </h1>
-            <p className="text-white ">{heroeInfos.utilityPower}</p>
+          <div className="flex flex-row items-center justify-around text-center bp2:flex-col ">
+            <img className="" src={heroeInfos.imagePower} alt="power" />
+            <div className="flex flex-col items-center w-[50%]">
+              <h1 className="mb-6 text-[3rem]  text-orange-600 bp3:text-[2.5rem]">
+                {heroeInfos.powerTitle}
+              </h1>
+              {/* Utilité du Pouvoir héroique */}
+              <p className="text-white text-[1.5rem] bp3:text-[1rem] ">
+                {heroeInfos.utilityPower}
+              </p>
+            </div>
           </div>
         </div>
       )}

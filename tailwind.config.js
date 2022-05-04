@@ -5,6 +5,11 @@ module.exports = {
     fontFamily: {
       belwe: ["belwe", "serif"],
     },
+    screens: {
+      bp1: { max: "1390px" },
+      bp2: { max: "1000px" },
+      bp3: { max: "600px" },
+    },
     extend: {
       keyframes: {
         float: {
@@ -34,7 +39,10 @@ module.exports = {
           },
         },
       },
-
+      dropShadow: {
+        "3xl": "0 25px 25px black",
+        "4xl": ["0 35px 35px black", "0 45px 65px black"],
+      },
       width: {
         100: "10%",
       },

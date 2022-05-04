@@ -7,6 +7,7 @@ import Battleground from "./components/Battleground";
 import Description from "./components/Description";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import Choice from "./components/Choice";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route path="rules" element={<Rules />} />
           <Route path="heroes" element={<Heroes />} />
           <Route path="description/:nameClass" element={<Description />} />
-          <Route path="battleground" element={<Battleground />} />
+          <Route path="choice/battleground" element={<Battleground />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="choice" element={<Choice />} />
         </Route>
       </Routes>
     </div>
