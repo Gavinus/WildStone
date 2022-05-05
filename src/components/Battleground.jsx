@@ -140,7 +140,11 @@ const Battleground = () => {
             alt="battleground"
             className="w-full"
           />
-
+          <div>
+            <p className="absolute top-[46.5%] w-[8rem] h-[15rem] text-base">
+              {message}
+            </p>
+          </div>
           {/* Grid pour l'affichage des cartes sur le battleground */}
 
           <div
