@@ -1,5 +1,4 @@
 let arrayFighting = [];
-// const messageUsed = card.used ? "Choose a card no used" : "Choose your card";
 
 const fighting = (card, setDefenser, setAttacker, setTurnMessage) => {
   if (arrayFighting.length === 2) arrayFighting = [];

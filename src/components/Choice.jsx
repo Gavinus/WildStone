@@ -15,7 +15,7 @@ const Choice = () => {
             className="absolute transition flex justify-center items-center duration-300 ease-in-out backdrop-brightness-50 hover:backdrop-filter-none w-full h-full text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-[2rem] bp2:text-[1.5rem] bp3:text-[1rem]"
             style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
           >
-            Battleground
+            Champ de Bataille
           </h1>
         </Link>
       </div>
@@ -31,7 +31,7 @@ const Choice = () => {
             className="absolute transition flex justify-center items-center duration-300 ease-in-out backdrop-brightness-50 hover:backdrop-filter-none w-full h-full text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-[2rem] bp2:text-[1.5rem] bp3:text-[1rem]"
             style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
           >
-            Memories
+            Memory
           </h1>
         </Link>
       </div>
