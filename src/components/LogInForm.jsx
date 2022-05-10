@@ -9,7 +9,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   function handleInputChange(e) {
-    setUsername(e.target.value);
+    setUserName(e.target.value);
   }
 
   function clickChange() {

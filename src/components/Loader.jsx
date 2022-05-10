@@ -6,7 +6,6 @@ import { getRandom } from "../lib/utils";
 const Loader = () => {
   // On crée un state qui recupère notre tableau "quoteHistory" et qui fait un random de celui ci qui parcour de 0 à la longueur du tableau
   const persoQuote = getRandom(0, quoteHistory.length);
-  console.log(persoQuote);
 
   return (
     <div className="flex items-center justify-center w-screen h-screen">
