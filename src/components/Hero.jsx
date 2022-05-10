@@ -2,7 +2,7 @@ import React from "react";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Heroe = ({ nameClass }) => {
+const Hero = ({ nameClass }) => {
   // Fonction permettant de remonter en haut de la page en cliquant sur le carousel.
   const scrollToTop = () => {
     window.scrollTo({
@@ -11,7 +11,7 @@ const Heroe = ({ nameClass }) => {
     });
   };
   return (
-    <ul className="flex flex-col items-center m-auto w-80">
+    <ul className="flex flex-col items-center m-auto w-80 ">
       <li>
         <Link onClick={scrollToTop} to={`/home/description/${nameClass}`}>
           <img
@@ -26,8 +26,8 @@ const Heroe = ({ nameClass }) => {
   );
 };
 
-Heroe.propTypes = {
+Hero.propTypes = {
   nameClass: Proptypes.string.isRequired,
 };
 
-export default Heroe;
+export default Hero;
