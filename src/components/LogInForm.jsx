@@ -31,6 +31,7 @@ const LoginForm = () => {
           placeholder="Nom d'utilisateur *"
           onChange={handleInputChange}
           className="w-full p-3 text-center border-2 border-blue-500 rounded hover:border-yellow-400"
+          autoComplete="user-name"
         />
       </div>
 
@@ -41,6 +42,7 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Mot de passe *"
           className="w-full p-3 text-center border-2 border-blue-500 rounded hover:border-yellow-400"
+          autoComplete="current-password"
         />
       </div>
 
