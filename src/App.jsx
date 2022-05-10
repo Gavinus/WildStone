@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Rules from "./components/Rules";
 import Landing from "./components/Landing";
-import Heroes from "./components/Heroes";
+import Heros from "./components/Heros";
 import Battleground from "./components/Battleground";
 import Description from "./components/Description";
 import Contact from "./components/Contact";
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />}>
           <Route path="rules" element={<Rules />} />
-          <Route path="heroes" element={<Heroes />} />
+          <Route path="heroes" element={<Heros />} />
           <Route path="description/:nameClass" element={<Description />} />
           <Route path="choice/battleground" element={<Battleground />} />
           <Route path="contact" element={<Contact />} />

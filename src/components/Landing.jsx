@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import LoginForm from "./LogInForm";
 
 const Landing = () => {
-  const [Dorsleft, setDorsLeft] = useState(false);
-  const [DorsRight, setDorsRight] = useState(false);
+  const [doorsleft, setDoorsLeft] = useState(false);
+  const [doorsRight, setDoorsRight] = useState(false);
 
   const handleChange = () => {
-    setDorsLeft(!Dorsleft);
-    setDorsRight(!DorsRight);
+    setDoorsLeft(!doorsleft);
+    setDoorsRight(!doorsRight);
   };
   sessionStorage.clear();
 
@@ -18,7 +18,7 @@ const Landing = () => {
         <div className="md:flex md:items-center">
           <img
             className={`cursor-pointer md:w-48 lg:w-80 xl:w-96 ${
-              Dorsleft ? "-translate-x-5 " : ""
+              doorsleft ? "-translate-x-5 " : ""
             } transition ease-out duration-500`}
             src="/assets/logo_texture_porte_gauche.png"
             alt="logoLanding"
@@ -29,7 +29,7 @@ const Landing = () => {
         </div>
         <div
           className={`flex items-center overflow-hidden delay-150 after:tranform-none transition-all duration-500 ease-in-out before:-transform-none ${
-            Dorsleft && DorsRight ? "w-auto opacity-100" : "w-0 opacity-0"
+            doorsleft && doorsRight ? "w-auto opacity-100" : "w-0 opacity-0"
           }`}
         >
           <LoginForm />
@@ -37,7 +37,7 @@ const Landing = () => {
         <div className="md:flex md:items-center">
           <img
             className={` cursor-pointer md:w-48 lg:w-80 xl:w-96 ${
-              Dorsleft ? "translate-x-5" : ""
+              doorsleft ? "translate-x-5" : ""
             } transition ease-out duration-500`}
             src="/assets/logo-texture-porte-droite.png"
             alt="landing"
