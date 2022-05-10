@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   // inititialisation du stockage username
-  const [userName, setUsername] = React.useState("");
+  const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
   // Création d'un hook pour la navigation avec les boutons
   const navigate = useNavigate();
