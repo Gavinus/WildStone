@@ -2,7 +2,7 @@ import React from "react";
 
 const Rules = () => {
   return (
-    <div className="content-center justify-center bg-[#B2915F] pt-28">
+    <div className="content-center justify-center background pt-28">
       <h1 className="mb-10 text-6xl text-center font-['.font/Belwe Bold.otf']">
         Règles du Jeu
       </h1>

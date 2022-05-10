@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Slider from "react-slick";
-import descHeroes from "../data/descHeroes";
-import Heroe from "./Heroe";
+import descHeros from "../data/descHeros";
+import Hero from "./Hero";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Description = () => {
   const { nameClass } = useParams();
 
-  const [heroeInfos, setHeroeInfos] = useState([]);
+  const [heroInfos, setHeroInfos] = useState([]);
 
-  const [listClasses, setListClasses] = useState([]);
+  const [classList, setClassList] = useState([]);
   // Appel de l'API
   const options = {
     method: "GET",
@@ -24,14 +24,12 @@ const Description = () => {
     },
   };
   useEffect(() => {
-    setHeroeInfos(
-      descHeroes.find((descHeroe) => descHeroe.title === nameClass)
-    );
+    setHeroInfos(descHeros.find((descHero) => descHero.title === nameClass));
     // get all classes
     axios
       .request(options)
       .then((res) => res.data.classes)
-      .then((data) => setListClasses(data));
+      .then((data) => setClassList(data));
     // find one heroe
   }, [nameClass]);
   // Package du carousel
@@ -69,16 +67,14 @@ const Description = () => {
     ],
   };
   return (
-    <div className="bg-black">
-      {heroeInfos && (
+    <div className="bg-[url('../../public/assets/fondNoir.jpg')] bg-cover">
+      {heroInfos && (
         <div className="relative flex flex-col items-center justify-center min-h-screen pt-14">
           {/* Image du héros principal */}
           <img
-            src={heroeInfos.image}
+            src={heroInfos.image}
             className={`object-cover h-[100vh] w-[100vw] ${
-              heroeInfos.id === 0 || heroeInfos.id === 6
-                ? "bp2:object-right"
-                : ""
+              heroInfos.id === 0 || heroInfos.id === 6 ? "bp2:object-right" : ""
             } `}
             alt="heroeInfos"
           />
@@ -89,7 +85,7 @@ const Description = () => {
               className="text-5xl text-white mt-80 max-w-prose-sm:text-base bp3:mt-44"
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
             >
-              {heroeInfos.title}
+              {heroInfos.title}
             </h1>
             {/* Sous-titre du héros */}
 
@@ -97,41 +93,41 @@ const Description = () => {
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
               className="text-3xl text-orange-600 max-w-screen-md:text-sm "
             >
-              {heroeInfos.subtitle}
+              {heroInfos.subtitle}
             </h2>
             {/* Description du héros */}
             <p
-              className="ml-5 mr-5 text-center text-white "
+              className=" m-auto text-center text-white w-[70%]"
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
             >
-              {heroeInfos.desc}
+              {heroInfos.desc}
             </p>
           </div>
         </div>
       )}
       {/* Pouvoir héroique */}
-      {heroeInfos && (
+      {heroInfos && (
         <div className="flex flex-col items-center justify-start gap-40 mt-32 ">
           <div className="flex flex-col items-center justify-start">
             <h1 className="text-[3rem] text-orange-600 text-center bp3:text-[2.5rem]">
-              {heroeInfos.powerHeroique}
+              {heroInfos.powerHeroique}
             </h1>
             {/* Citation du héros */}
             <h1 className="mt-5 text-[1.5rem] text-white text-center bp3:text-[1rem] ">
-              {heroeInfos.quote}
+              {heroInfos.quote}
             </h1>
             {/* Image du Pouvoir héroique */}
           </div>
           {/* Nom du Pouvoir héroique */}
-          <div className="flex flex-row items-center justify-around text-center bp2:flex-col ">
-            <img className="" src={heroeInfos.imagePower} alt="power" />
+          <div className="flex flex-row items-center justify-around text-center bp2:flex-col">
+            <img className="" src={heroInfos.imagePower} alt="power" />
             <div className="flex flex-col items-center w-[50%]">
               <h1 className="mb-6 text-[3rem]  text-orange-600 bp3:text-[2.5rem]">
-                {heroeInfos.powerTitle}
+                {heroInfos.powerTitle}
               </h1>
               {/* Utilité du Pouvoir héroique */}
               <p className="text-white text-[1.5rem] bp3:text-[1rem] ">
-                {heroeInfos.utilityPower}
+                {heroInfos.utilityPower}
               </p>
             </div>
           </div>
@@ -143,8 +139,8 @@ const Description = () => {
       </div>
       <div className="flex flex-col p-10 mt-20 text-white">
         <Slider {...settings}>
-          {listClasses &&
-            listClasses
+          {classList &&
+            classList
               .filter(
                 (classFilter) =>
                   ![
@@ -156,7 +152,7 @@ const Description = () => {
               )
 
               .map((classe, index) => (
-                <Heroe key={index} nameClass={classe} location="Description" />
+                <Hero key={index} nameClass={classe} location="Description" />
               ))}
         </Slider>
       </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Heroe from "./Heroe";
+import Hero from "./Hero";
 
-const Heroes = () => {
-  const [listClasses, setListClasses] = useState([]);
+const Heros = () => {
+  const [classList, setClassList] = useState([]);
 
   const options = {
     method: "GET",
@@ -19,11 +19,11 @@ const Heroes = () => {
     axios
       .request(options)
       .then((res) => res.data.classes)
-      .then((data) => setListClasses(data));
+      .then((data) => setClassList(data));
   }, []);
   return (
-    <div className="flex flex-wrap justify-center gap-10 pt-24 ">
-      {listClasses
+    <div className="flex flex-wrap justify-center gap-10 pt-24 background ">
+      {classList
         .filter(
           (nameClass) =>
             !["Dream", "Chevalier de la mort", "Neutre", "Whizbang"].includes(
@@ -31,10 +31,10 @@ const Heroes = () => {
             )
         )
         .map((nameClass, index) => (
-          <Heroe key={index} nameClass={nameClass} />
+          <Hero key={index} nameClass={nameClass} />
         ))}
     </div>
   );
 };
 
-export default Heroes;
+export default Heros;
