@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
 
             <div className="flex mx-8 gap-9 place-content-center">
-              <Stars className="" />
+              <Stars />
               <button
                 type="submit"
                 className="px-4 mt-2 w-5/6 py-2 mb-10 font-bold bg-[rgb(27,27,27)] border-4 rounded border-sky-600 hover:bg-blue-400 hover:border-blue-500 text-sky-600"

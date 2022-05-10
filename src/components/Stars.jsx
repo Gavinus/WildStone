@@ -15,7 +15,7 @@ const Stars = () => {
         name="simple-controlled"
         size="large"
         value={value}
-        onChange={(event, newValue) => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       />

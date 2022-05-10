@@ -97,7 +97,7 @@ const Description = () => {
             </h2>
             {/* Description du héros */}
             <p
-              className=" m-auto text-center text-white w-[70%]"
+              className=" m-auto text-center text-white w-[70%] text-[1.25rem]"
               style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
             >
               {heroInfos.desc}
