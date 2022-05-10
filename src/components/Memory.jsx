@@ -55,7 +55,7 @@ const Memory = () => {
         });
         resetTurn();
       } else {
-        setTimeout(() => resetTurn(), 200);
+        setTimeout(() => resetTurn(), 50);
       }
     }
   }, [choice1, choice2]);
@@ -66,12 +66,11 @@ const Memory = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-no-repeat bg-center h-screen bg-[url('/assets/image-fond-landing-page.png')]">
       <h1>magic card</h1>
-      <h2>{turns}</h2>
       <div>
-        <div className="box-content">
-          <div className="grid grid-cols-5 mx-4 my-10">
+        <div className="box-content flex flex-col mx-48 my-8">
+          <div className="grid justify-center grid-cols-5 mx-10 my-10">
             {cards.map((card) => (
               <Cardmemory
                 key={card.id}
@@ -85,12 +84,15 @@ const Memory = () => {
               />
             ))}
           </div>
+          <h2 className="mx-12 text-3xl font-bold text-yellow-500">
+            Number of turns : {turns}
+          </h2>
           <button
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+            className="px-4 py-2 text-2xl font-bold text-white bg-blue-500 rounded-full mx-96 hover:bg-blue-500"
             type="button"
             onClick={melangeCards}
           >
-            Nouveau jeu
+            Start New Game
           </button>
         </div>
       </div>
