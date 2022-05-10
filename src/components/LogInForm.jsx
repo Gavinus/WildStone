@@ -23,7 +23,7 @@ const LoginForm = () => {
       <div className="py-8 ">
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Nom d'utilisateur"
           onChange={handleInputChange}
           className="w-full p-3 text-center border-2 border-blue-500 rounded hover:border-yellow-400"
         />
