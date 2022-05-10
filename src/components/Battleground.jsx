@@ -51,7 +51,7 @@ const Battleground = () => {
   }
 
   useEffect(() => {
-    setTurnMessage(!round ? "Your turn" : "Enemy turn");
+    setTurnMessage(!round ? "Votre tour" : "Tour de l'adversaire");
     const enemyLength = cardsEnemy.filter(
       (card) => !card.used && card.health > 0
     );
@@ -84,8 +84,9 @@ const Battleground = () => {
       cardsEnemy.every((enemy) => enemy.health <= 0) ||
       cardsAlly.every((enemy) => enemy.health <= 0)
     ) {
-      if (!enemyLength.length && allyLength) setTurnMessage("You wins");
-      else if (!allyLength.length && enemyLength) setTurnMessage("Enemy wins");
+      if (!enemyLength.length && allyLength) setTurnMessage("Vous avez gagné!");
+      else if (!allyLength.length && enemyLength)
+        setTurnMessage("Vous avez Perdu!");
       else setTurnMessage("Equality");
     }
   }, [round, cardsEnemy, cardsAlly]);
@@ -127,11 +128,17 @@ const Battleground = () => {
     <div>
       {cardsAlly.length && cardsEnemy.length ? (
         <div className="relative flex pt-14">
-          <p className="absolute text-xl text-center text-white w-min top-1/2 left-12">
+          <p
+            style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
+            className="absolute text-xl text-center text-white w-min top-[46%] left-12"
+          >
             {turnMessage}
           </p>
           {!round && (
-            <p className="absolute text-xl text-center text-white w-min top-1/2 right-12">
+            <p
+              style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
+              className="absolute text-xl text-center text-white w-min top-[46%] right-12"
+            >
               {messageRight}
             </p>
           )}
@@ -140,11 +147,6 @@ const Battleground = () => {
             alt="battleground"
             className="w-full"
           />
-          <div>
-            <p className="absolute top-[46.5%] w-[8rem] h-[15rem] text-base">
-              {turnMessage}
-            </p>
-          </div>
           {/* Grid pour l'affichage des cartes sur le battleground */}
 
           <div

@@ -9,6 +9,13 @@ const Loader = () => {
 
   return (
     <div className="flex items-center justify-center w-screen h-screen">
+      <div
+        className="absolute top-[15%] text-[white] text-center text-[28px]"
+        style={{ textShadow: "3px 3px 2px black" }}
+      >
+        <p>Loading...</p>
+      </div>
+
       <div className="animate-[scale_1.5s_ease-in-out_infinite]">
         <img src="/assets/logo_texture.png" alt="logo" className="z-20" />
       </div>

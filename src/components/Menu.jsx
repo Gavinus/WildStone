@@ -68,6 +68,7 @@ const Menu = () => {
                   className="flex items-center justify-center text-2xl "
                 >
                   <h1
+                    style={{ textShadow: "3px 3px 2px rgb(0 0 0)" }}
                     className={`z-[2] cursor text-white absolute text-center text-1  bp2:text-[1rem] bp3:text-[0.75rem] bp4:text-[0.50rem]
                     ${menu ? "block" : "hidden"}`}
                   >
