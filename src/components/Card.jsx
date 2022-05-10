@@ -2,21 +2,27 @@ import { PropTypes } from "prop-types";
 import { useState } from "react";
 import fighting from "../lib/fight";
 
-const Card = ({ card, round, setCardsAlly, setCardsEnnemy, setMessage2 }) => {
+const Card = ({
+  card,
+  round,
+  setCardsAlly,
+  setCardsEnemy,
+  setMessageRight,
+}) => {
   const [selected, setSelected] = useState(false);
   return (
     <div
-      id="cardBattlegroundAllie1"
+      id="cardBattlegroundAlly1"
       className={`w-28 h-20 ${card.health <= 0 ? "hidden" : "block"}`}
       onClick={() => {
         setSelected(true);
         return round
-          ? fighting(card, setCardsAlly, setCardsEnnemy, setMessage2)
-          : fighting(card, setCardsEnnemy, setCardsAlly, setMessage2);
+          ? fighting(card, setCardsAlly, setCardsEnemy, setMessageRight)
+          : fighting(card, setCardsEnemy, setCardsAlly, setMessageRight);
       }}
       onKeyDown={() => {
         setSelected(true);
-        fighting(card, setCardsEnnemy, setCardsAlly, setMessage2);
+        fighting(card, setCardsEnemy, setCardsAlly, setMessageRight);
       }}
       aria-hidden
     >
@@ -52,8 +58,8 @@ Card.propTypes = {
     clan: PropTypes.string,
   }).isRequired,
   setCardsAlly: PropTypes.func.isRequired,
-  setCardsEnnemy: PropTypes.func.isRequired,
-  setMessage2: PropTypes.func.isRequired,
+  setCardsEnemy: PropTypes.func.isRequired,
+  setMessageRight: PropTypes.func.isRequired,
   round: PropTypes.bool.isRequired,
 };
 

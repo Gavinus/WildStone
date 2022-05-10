@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import datas from "./data.js";
+import datas from "../data/data.js";
 import "./card.css";
 import Cardmemory from "./Cardmemory";
 

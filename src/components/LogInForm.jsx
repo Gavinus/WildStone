@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import React, { useState } from "react";
 
 const LoginForm = () => {
   // inititialisation du stockage username
-  const [userName, setUsername] = React.useState("");
+  const [userName, setUserName] = React.useState("");
 
   function handleInputChange(e) {
-    setUsername(e.target.value);
+    setUserName(e.target.value);
   }
 
   function clickChange() {
