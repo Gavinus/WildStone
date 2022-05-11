@@ -20,24 +20,29 @@ const Contact = () => {
             alt="logo"
           />
 
-          <div className="grid grid-cols-1 space-y-5 mx-7 border-b-indigo-500">
-            <div className="flex ml-5 bp3:ml-1 ">
-              <label className="w-3/4" htmlFor="name">
+          <form className="grid space-y-5 mx-7 border-b-indigo-500">
+            <div className="flex ml-10 mr-14 bp3:ml-1 ">
+              <label className="flex w-[100%] whitespace-nowrap" htmlFor="name">
                 Nom :
                 <input
-                  className=" w-11/12 ml-10 border-2 border-b-4 border-t-gray-900 border-x-gray-900 bg-[rgb(18,18,19)] border-b-sky-600"
+                  className=" w-[80%] ml-10 border-2 border-b-4 border-t-gray-900 border-x-gray-900 bg-[rgb(18,18,19)] border-b-sky-600"
                   type="name"
+                  required
                   id="name"
                   name="name"
                 />
               </label>
             </div>
-            <div className="flex ml-5 bp3:ml-1 ">
-              <label className="w-3/4" htmlFor="email">
+            <div className="flex ml-10 mr-14 bp3:ml-1 ">
+              <label
+                className="flex w-[100%] whitespace-nowrap"
+                htmlFor="email"
+              >
                 Email :
                 <input
-                  className=" flex-end w-11/12 ml-10 border-2 border-b-4 border-t-gray-900 border-x-gray-900 bg-[rgb(18,18,19)] border-b-sky-600 "
+                  className=" w-[80%] ml-10 border-2 border-b-4 border-t-gray-900 border-x-gray-900 bg-[rgb(18,18,19)] border-b-sky-600 "
                   type="email"
+                  required
                   id="email"
                   name="email"
                 />
@@ -45,26 +50,30 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="msg">
+              <label className="ml-10" htmlFor="msg">
                 Commentaires :
                 <textarea
-                  className="rounded-lg max-w-[90%] mx-10 w-5/6 h-60 mr-10 mt-8 ml-5 border-4 border-sky-600 bg-[rgb(18,18,19)] "
+                  className="rounded-lg max-w-[90%] mx-10 w-5/6 h-60  mt-8  border-4 border-sky-600 bg-[rgb(18,18,19)] "
                   id="msg"
                   name="msg"
                 />
               </label>
             </div>
-
-            <div className="flex mx-8 gap-9 place-content-center">
-              <Stars />
-              <button
-                type="submit"
-                className="px-4 mt-2 w-5/6 py-2 mb-10 font-bold bg-[rgb(27,27,27)] border-4 rounded border-sky-600 hover:bg-blue-400 hover:border-blue-500 text-sky-600"
-              >
-                Envoyer
-              </button>
+            <div className="flex ">
+              <div className="flex ml-10 gap-9">
+                <Stars />
+              </div>
+              <div className="flex justify-end mr-14 w-[200%] ">
+                <button
+                  type="submit"
+                  required
+                  className=" px-4 w-[70%] h-[88%] py-2 mb-5 font-bold bg-[rgb(27,27,27)] border-4 rounded border-sky-600 hover:bg-blue-400 hover:border-blue-500 text-sky-600"
+                >
+                  Envoyer
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
