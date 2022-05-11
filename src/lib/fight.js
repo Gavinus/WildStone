@@ -9,7 +9,9 @@ const fighting = (card, setDefenser, setAttacker, setTurnMessage) => {
         setTurnMessage("");
       } else {
         setTurnMessage(
-          card.used ? "Choose a card no used" : "Choose your card"
+          card.used
+            ? "Choisir une carte non utilisée"
+            : "Choisir une de vos cartes"
         );
       }
     } else if (card.clan === "enemy") {
@@ -37,7 +39,7 @@ const fighting = (card, setDefenser, setAttacker, setTurnMessage) => {
       );
       setTurnMessage("");
     } else {
-      setTurnMessage("Please, choose an enemy");
+      setTurnMessage("Choisissez une carte adverse");
     }
   }
 };
