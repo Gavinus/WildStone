@@ -66,10 +66,10 @@ const Memory = () => {
   }, []);
 
   return (
-    <div className="bg-no-repeat bg-center h-screen bg-[url('/assets/image-fond-landing-page.png')]">
+    <div className="bg-no-repeat pt-8 h-screen bg-center bg-screen bg-[url('/assets/image-fond-landing-page.png')]">
       <h1>magic card</h1>
       <div>
-        <div className="box-content flex flex-col mx-48 my-8">
+        <div className="box-content flex flex-col items-center justify-center mx-48">
           <div className="grid justify-center grid-cols-5 mx-10 my-10">
             {cards.map((card) => (
               <Cardmemory
@@ -84,16 +84,18 @@ const Memory = () => {
               />
             ))}
           </div>
-          <h2 className="mx-12 text-3xl font-bold text-yellow-500">
-            Nombre de tours : {turns}
-          </h2>
-          <button
-            className="px-4 py-2 text-2xl font-bold text-white bg-blue-500 rounded-full mx-96 hover:bg-blue-500"
-            type="button"
-            onClick={melangeCards}
-          >
-            Nouvelle Partie
-          </button>
+          <div className="flex justify-between item-center">
+            <h2 className="mx-12 text-3xl font-bold text-yellow-500">
+              Nombre de tours : {turns}
+            </h2>
+            <button
+              className="px-4 mx-64 text-2xl font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-500"
+              type="button"
+              onClick={melangeCards}
+            >
+              Nouvelle Partie
+            </button>
+          </div>
         </div>
       </div>
     </div>
