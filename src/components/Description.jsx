@@ -67,7 +67,7 @@ const Description = () => {
     ],
   };
   return (
-    <div className="bg-[url('../../public/assets/fondNoir.jpg')] bg-cover">
+    <div className="bg-[url('/assets/fondNoir.jpg')] bg-cover">
       {heroInfos && (
         <div className="relative flex flex-col items-center justify-center min-h-screen pt-14">
           {/* Image du héros principal */}
