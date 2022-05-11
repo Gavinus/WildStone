@@ -16,3 +16,14 @@
     url("//db.onlinewebfonts.com/t/3ee8a7eb4aa82d9eb4f73e85e2e02eaf.svg#Belwe")
       format("svg");
 }
+
+.background {
+  background-color: #d3c1a5;
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #d3c1a5 14px
+    ),
+    repeating-linear-gradient(#b2915f55, #b2915f);
+}

@@ -1,27 +1,30 @@
 let arrayFighting = [];
-// const messageUsed = card.used ? "Choose a card no used" : "Choose your card";
 
-const fighting = (card, setDefenser, setAttacker, setMessage) => {
+const fighting = (card, setDefenser, setAttacker, setTurnMessage) => {
   if (arrayFighting.length === 2) arrayFighting = [];
   if (arrayFighting.length < 2) {
     if (arrayFighting.length === 0) {
       if (card.clan === "ally" && !card.used) {
         arrayFighting.push(card);
-        setMessage("");
+        setTurnMessage("");
       } else {
-        setMessage(card.used ? "Choose a card no used" : "Choose your card");
+        setTurnMessage(
+          card.used
+            ? "Choisir une carte non utilisée"
+            : "Choisir une de vos cartes"
+        );
       }
-    } else if (card.clan === "ennemy") {
+    } else if (card.clan === "enemy") {
       arrayFighting.push(card);
-      setMessage("");
+      setTurnMessage("");
 
       setDefenser((value) =>
-        value.map((ennemy) => {
-          let { health } = ennemy;
-          if (ennemy.cardId === arrayFighting[1].cardId) {
-            health = ennemy.health - arrayFighting[0].attack;
+        value.map((enemy) => {
+          let { health } = enemy;
+          if (enemy.cardId === arrayFighting[1].cardId) {
+            health = enemy.health - arrayFighting[0].attack;
           }
-          return { ...ennemy, health };
+          return { ...enemy, health };
         })
       );
       setAttacker((value) =>
@@ -34,9 +37,9 @@ const fighting = (card, setDefenser, setAttacker, setMessage) => {
           return { ...ally, health, used };
         })
       );
-      setMessage("");
+      setTurnMessage("");
     } else {
-      setMessage("Please, choose an ennemy");
+      setTurnMessage("Choisissez une carte adverse");
     }
   }
 };

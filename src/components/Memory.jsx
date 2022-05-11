@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import datas from "./data.js";
-import "./card.css";
+import datas from "../data/data.js";
+import "../card.css";
 import Cardmemory from "./Cardmemory";
 
 const Memory = () => {
@@ -55,7 +55,7 @@ const Memory = () => {
         });
         resetTurn();
       } else {
-        setTimeout(() => resetTurn(), 200);
+        setTimeout(() => resetTurn(), 50);
       }
     }
   }, [choice1, choice2]);
@@ -66,12 +66,11 @@ const Memory = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-no-repeat pt-8 h-screen bg-center bg-screen bg-[url('/assets/image-fond-landing-page.png')]">
       <h1>magic card</h1>
-      <h2>{turns}</h2>
       <div>
-        <div className="box-content">
-          <div className="grid grid-cols-5 mx-4 my-10">
+        <div className="box-content flex flex-col items-center justify-center mx-48">
+          <div className="grid justify-center grid-cols-5 mx-10 my-10">
             {cards.map((card) => (
               <Cardmemory
                 key={card.id}
@@ -85,13 +84,18 @@ const Memory = () => {
               />
             ))}
           </div>
-          <button
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-            type="button"
-            onClick={melangeCards}
-          >
-            Nouveau jeu
-          </button>
+          <div className="flex justify-between item-center">
+            <h2 className="mx-12 text-3xl font-bold text-yellow-500">
+              Nombre de tours : {turns}
+            </h2>
+            <button
+              className="px-4 mx-64 text-2xl font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-500"
+              type="button"
+              onClick={melangeCards}
+            >
+              Nouvelle Partie
+            </button>
+          </div>
         </div>
       </div>
     </div>

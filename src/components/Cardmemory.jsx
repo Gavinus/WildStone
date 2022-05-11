@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./card.css";
+import "../card.css";
 
 const Cardmemory = ({ card, choixHand, flipped, disabled }) => {
   const handleClick = () => {
